@@ -1,0 +1,302 @@
+{
+  "industry": "technology",
+  "description": "OKR examples for technology companies including SaaS, fintech, AI/ML, cybersecurity",
+  "last_updated": "2024-01-20",
+  "examples": [
+    {
+      "id": "tech-1",
+      "category": "industry",
+      "context": {
+        "industry": ["technology", "saas"],
+        "function": ["product", "engineering"],
+        "company_size": "scale",
+        "situation": "increasing user engagement in SaaS platform"
+      },
+      "poor_version": {
+        "objective": "Improve the product",
+        "key_results": [
+          "Launch 5 new features",
+          "Fix all bugs",
+          "Get better feedback"
+        ],
+        "problems": [
+          "Activity-focused rather than outcome-focused",
+          "No measurable targets",
+          "Vague and non-specific",
+          "No connection to business value"
+        ],
+        "quality_score": 25
+      },
+      "good_version": {
+        "objective": "Drive user adoption by delivering a best-in-class user experience",
+        "key_results": [
+          "Increase monthly active users from 50K to 75K",
+          "Improve user retention from 65% to 80% at 30 days",
+          "Achieve Net Promoter Score of 50+ (from current 32)"
+        ],
+        "improvements": [
+          "Focus on user outcomes rather than feature delivery",
+          "Specific, measurable targets with baselines",
+          "Clear connection to business value"
+        ],
+        "quality_score": 92
+      },
+      "explanation": {
+        "transformation_rationale": "The transformation shifts focus from internal activities to user outcomes that drive business value. Instead of counting features, we measure user engagement and satisfaction.",
+        "key_insights": [
+          "User engagement metrics directly correlate with revenue growth",
+          "Retention is more valuable than acquisition for SaaS",
+          "NPS provides leading indicator of sustainable growth"
+        ],
+        "implementation_tips": [
+          "Track baseline metrics for 2-4 weeks before setting targets",
+          "Segment users by cohort to understand retention patterns",
+          "Survey users monthly to track NPS consistently"
+        ]
+      },
+      "metadata": {
+        "source": "Expert analysis",
+        "expert_validated": true,
+        "usage_count": 47,
+        "effectiveness_score": 0.91,
+        "last_updated": "2024-01-20"
+      }
+    },
+    {
+      "id": "tech-2",
+      "category": "industry",
+      "context": {
+        "industry": ["fintech"],
+        "function": ["product", "compliance"],
+        "company_size": "startup",
+        "situation": "building trust and security in financial platform"
+      },
+      "poor_version": {
+        "objective": "Make the platform more secure",
+        "key_results": [
+          "Implement security features",
+          "Pass compliance audit",
+          "Reduce security incidents"
+        ],
+        "problems": [
+          "Vague objective without specificity",
+          "No quantifiable measures",
+          "Missing business context",
+          "No baseline or targets"
+        ],
+        "quality_score": 28
+      },
+      "good_version": {
+        "objective": "Establish market-leading security and trust to accelerate customer acquisition",
+        "key_results": [
+          "Achieve SOC 2 Type II certification within 6 months",
+          "Reduce security incidents from 12/month to <2/month",
+          "Increase customer trust score from 3.2 to 4.5 (1-5 scale) via quarterly surveys"
+        ],
+        "improvements": [
+          "Clear connection to business outcomes (customer acquisition)",
+          "Specific certifications and quantifiable targets",
+          "Customer-centric trust measurement"
+        ],
+        "quality_score": 88
+      },
+      "explanation": {
+        "transformation_rationale": "Security in fintech isn't just about compliance—it's about building customer trust that drives acquisition. The reframe connects security investments to business outcomes.",
+        "key_insights": [
+          "Trust is a competitive differentiator in financial services",
+          "Certifications provide external validation customers recognize",
+          "Customer perception of security is as important as actual security"
+        ],
+        "implementation_tips": [
+          "Start SOC 2 process early as it takes 6-12 months",
+          "Track both technical security metrics and customer sentiment",
+          "Communicate security achievements publicly for competitive advantage"
+        ]
+      },
+      "metadata": {
+        "source": "Fintech security expert consultation",
+        "expert_validated": true,
+        "usage_count": 23,
+        "effectiveness_score": 0.87,
+        "last_updated": "2024-01-20"
+      }
+    },
+    {
+      "id": "tech-3",
+      "category": "industry",
+      "context": {
+        "industry": ["technology", "ai"],
+        "function": ["engineering", "product"],
+        "company_size": "enterprise",
+        "situation": "improving AI model performance and accuracy"
+      },
+      "poor_version": {
+        "objective": "Build better AI models",
+        "key_results": [
+          "Train more models",
+          "Use better algorithms",
+          "Collect more data"
+        ],
+        "problems": [
+          "No specific outcomes defined",
+          "Activity-focused rather than result-focused",
+          "No measurable success criteria",
+          "Missing business impact connection"
+        ],
+        "quality_score": 22
+      },
+      "good_version": {
+        "objective": "Deliver breakthrough AI performance that enables new customer use cases",
+        "key_results": [
+          "Improve model accuracy from 87% to 95% on core classification tasks",
+          "Reduce inference latency from 200ms to <50ms at 95th percentile",
+          "Enable 3 new customer use cases generating $2M+ ARR opportunity"
+        ],
+        "improvements": [
+          "Specific performance metrics with clear baselines",
+          "Technical excellence connected to business outcomes",
+          "Customer value creation as primary measure"
+        ],
+        "quality_score": 90
+      },
+      "explanation": {
+        "transformation_rationale": "AI improvements should be measured by customer value creation, not just technical metrics. The best models are those that enable new business opportunities.",
+        "key_insights": [
+          "Model performance must be balanced with business practicality",
+          "Latency improvements can unlock new real-time use cases",
+          "Customer use cases are the ultimate validation of AI progress"
+        ],
+        "implementation_tips": [
+          "Work with sales/customer success to identify high-value use cases",
+          "Set up automated performance monitoring dashboards",
+          "Track both technical metrics and customer adoption of new capabilities"
+        ]
+      },
+      "metadata": {
+        "source": "AI/ML engineering best practices",
+        "expert_validated": true,
+        "usage_count": 31,
+        "effectiveness_score": 0.89,
+        "last_updated": "2024-01-20"
+      }
+    },
+    {
+      "id": "tech-4",
+      "category": "industry",
+      "context": {
+        "industry": ["cybersecurity"],
+        "function": ["sales", "marketing"],
+        "company_size": "scale",
+        "situation": "growing market share in competitive cybersecurity landscape"
+      },
+      "poor_version": {
+        "objective": "Increase sales",
+        "key_results": [
+          "Hire more salespeople",
+          "Generate more leads",
+          "Close more deals"
+        ],
+        "problems": [
+          "Generic objective lacking specificity",
+          "Input metrics rather than outcome metrics",
+          "No baseline or target numbers",
+          "Missing market context"
+        ],
+        "quality_score": 26
+      },
+      "good_version": {
+        "objective": "Capture enterprise market share by establishing thought leadership in zero-trust security",
+        "key_results": [
+          "Grow enterprise ARR from $8M to $15M (87% growth)",
+          "Increase average deal size from $85K to $150K for enterprise segment",
+          "Achieve 35% win rate in competitive enterprise deals (from current 18%)"
+        ],
+        "improvements": [
+          "Market-specific positioning with clear differentiation",
+          "Revenue and deal quality metrics over activity metrics",
+          "Competitive context with measurable advantage"
+        ],
+        "quality_score": 91
+      },
+      "explanation": {
+        "transformation_rationale": "In competitive cybersecurity markets, success comes from clear differentiation and value proposition. Focus on market share and deal quality over volume.",
+        "key_insights": [
+          "Enterprise buyers focus on strategic value over price",
+          "Thought leadership drives higher-value conversations",
+          "Win rate in competitive deals indicates market strength"
+        ],
+        "implementation_tips": [
+          "Track competitive intelligence to understand win/loss drivers",
+          "Invest in content marketing to establish thought leadership",
+          "Focus sales enablement on enterprise value propositions"
+        ]
+      },
+      "metadata": {
+        "source": "Cybersecurity sales leadership insights",
+        "expert_validated": true,
+        "usage_count": 19,
+        "effectiveness_score": 0.93,
+        "last_updated": "2024-01-20"
+      }
+    },
+    {
+      "id": "tech-5",
+      "category": "industry",
+      "context": {
+        "industry": ["technology", "saas"],
+        "function": ["customer_success"],
+        "company_size": "scale",
+        "situation": "reducing churn and expanding existing accounts"
+      },
+      "poor_version": {
+        "objective": "Keep customers happy",
+        "key_results": [
+          "Respond to support tickets faster",
+          "Do more check-ins with customers",
+          "Send more newsletters"
+        ],
+        "problems": [
+          "Vague objective without measurable outcomes",
+          "Activity metrics rather than outcome metrics",
+          "No connection to business value",
+          "Missing specific targets"
+        ],
+        "quality_score": 24
+      },
+      "good_version": {
+        "objective": "Maximize customer lifetime value through proactive expansion and retention",
+        "key_results": [
+          "Reduce gross revenue churn from 8% to 5% monthly",
+          "Increase net revenue retention to 115% (from current 98%)",
+          "Grow average customer health score from 7.2 to 8.5 (1-10 scale)"
+        ],
+        "improvements": [
+          "Focus on revenue metrics that drive business growth",
+          "Balance retention with expansion for net growth",
+          "Health scoring as leading indicator"
+        ],
+        "quality_score": 89
+      },
+      "explanation": {
+        "transformation_rationale": "Customer success should drive revenue growth through both retention and expansion. Health scores provide early warning systems for proactive intervention.",
+        "key_insights": [
+          "Net revenue retention above 100% indicates expansion growth",
+          "Gross churn reduction has immediate P&L impact",
+          "Customer health scores predict both churn and expansion opportunities"
+        ],
+        "implementation_tips": [
+          "Segment customers by usage patterns and expansion potential",
+          "Automate health scoring based on product usage and engagement",
+          "Create expansion playbooks for different customer segments"
+        ]
+      },
+      "metadata": {
+        "source": "SaaS customer success best practices",
+        "expert_validated": true,
+        "usage_count": 38,
+        "effectiveness_score": 0.88,
+        "last_updated": "2024-01-20"
+      }
+    }
+  ]
+}

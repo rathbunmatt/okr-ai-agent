@@ -1,0 +1,82 @@
+{
+  "name": "okr-ai-agent",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Conversational AI agent for creating high-quality OKRs with intelligent coaching and quality assessment",
+  "author": "Matt",
+  "license": "MIT",
+  "keywords": [
+    "okr",
+    "objectives",
+    "key-results",
+    "goal-setting",
+    "ai",
+    "claude",
+    "anthropic",
+    "conversational-ai",
+    "coaching",
+    "quality-assessment",
+    "business-outcomes",
+    "strategic-planning",
+    "performance-management"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rathbunmatt/okr-ai-agent.git"
+  },
+  "homepage": "https://github.com/rathbunmatt/okr-ai-agent#readme",
+  "bugs": {
+    "url": "https://github.com/rathbunmatt/okr-ai-agent/issues"
+  },
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "npm run dev --workspace=server",
+    "dev:client": "npm run dev --workspace=client",
+    "build": "npm run build --workspace=server && npm run build --workspace=client",
+    "build:server": "npm run build --workspace=server",
+    "build:client": "npm run build --workspace=client",
+    "test": "npm run test --workspaces",
+    "test:server": "npm run test --workspace=server",
+    "test:client": "npm run test --workspace=client",
+    "test:coverage": "npm run test:coverage --workspace=server && npm run test:coverage --workspace=client",
+    "test:e2e": "playwright test",
+    "test:performance": "npm run test --workspace=server -- --testPathPattern=performance",
+    "test:security": "node security/security-tests.js",
+    "test:load": "artillery run performance-tests/load-testing.yml",
+    "test:uat": "playwright test tests/e2e/automated-uat.test.ts",
+    "validate:production": "npm run test && npm run test:e2e && npm run test:security && npm run test:performance",
+    "deploy:staging": "npm run build && npm run validate:production",
+    "deploy:production": "npm run deploy:staging && echo 'Production validation complete - ready for deployment'",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "clean": "npm run clean --workspaces",
+    "db:migrate": "npm run db:migrate --workspace=server",
+    "db:seed": "npm run db:seed --workspace=server",
+    "health-check": "node server/scripts/health-monitor.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.1",
+    "@types/node": "^24.8.1",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "artillery": "^2.0.0",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "playwright": "^1.56.1",
+    "prettier": "^3.0.0",
+    "supertest": "^6.3.3",
+    "tailwindcss-animate": "^1.0.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "last_updated": "2024-01-15",
+    "total_metrics": 100,
+    "description": "Metrics organized by outcome type for OKR key result suggestions"
+  },
+  "outcome_types": {
+    "growth": {
+      "description": "Metrics focused on expansion, acquisition, and scaling outcomes",
+      "metrics": [
+        {
+          "id": "growth_001",
+          "name": "Revenue Growth Rate",
+          "description": "Percentage increase in revenue over a specific period",
+          "category": "growth",
+          "type": "lagging",
+          "measurement": {
+            "method": "((Current Period Revenue - Previous Period Revenue) / Previous Period Revenue) * 100",
+            "data_sources": ["CRM", "Financial systems", "Billing platforms"],
+            "calculation": "Monthly/Quarterly percentage change",
+            "baseline_guidance": "Use previous period performance and industry benchmarks",
+            "target_setting": "Consider market growth rate + competitive advantage"
+          },
+          "applicability": {
+            "industries": ["technology", "retail", "financial_services", "healthcare"],
+            "functions": ["sales", "marketing", "executive"],
+            "contexts": ["scale-up", "market expansion", "product growth"]
+          },
+          "examples": {
+            "good_usage": [
+              "Increase MRR growth rate from 8% to 15% month-over-month",
+              "Achieve 25% YoY revenue growth in enterprise segment",
+              "Grow international revenue from $2M to $5M annually"
+            ],
+            "poor_usage": [
+              "Increase revenue (no baseline or target)",
+              "Grow as much as possible",
+              "Double revenue somehow"
+            ],
+            "implementation_notes": [
+              "Track both absolute numbers and growth rates",
+              "Segment by customer type, product, or geography",
+              "Monitor leading indicators that drive revenue growth"
+            ]
+          }
+        },
+        {
+          "id": "growth_002",
+          "name": "Customer Acquisition Rate",
+          "description": "Number of new customers acquired over a specific period",
+          "category": "growth",
+          "type": "lagging",
+          "measurement": {
+            "method": "Count of new paying customers per time period",
+            "data_sources": ["CRM", "Sales systems", "Analytics platforms"],
+            "calculation": "Monthly/weekly new customer count",
+            "baseline_guidance": "Historical acquisition rates and seasonal patterns",
+            "target_setting": "Based on market size, sales capacity, and growth goals"
+          },
+          "applicability": {
+            "industries": ["technology", "retail", "financial_services", "professional_services"],
+            "functions": ["sales", "marketing", "business_development"],
+            "contexts": ["customer growth", "market expansion", "sales scaling"]
+          },
+          "examples": {
+            "good_usage": [
+              "Acquire 500 new enterprise customers per quarter",
+              "Increase new customer acquisition from 200 to 400 per month",
+              "Achieve 1,000 new paid subscribers weekly"
+            ],
+            "poor_usage": [
+              "Get more customers",
+              "Acquire as many customers as possible",
+              "Lots of new signups"
+            ],
+            "implementation_notes": [
+              "Distinguish between leads, trials, and paying customers",
+              "Track acquisition by channel for optimization",
+              "Monitor quality of acquired customers (retention rates)"
+            ]
+          }
+        },
+        {
+          "id": "growth_003",
+          "name": "Market Share Growth",
+          "description": "Increase in percentage of total addressable market captured",
+          "category": "growth",
+          "type": "lagging",
+          "measurement": {
+            "method": "(Company Revenue / Total Market Size) * 100",
+            "data_sources": ["Market research", "Industry reports", "Competitive analysis"],
+            "calculation": "Percentage of total addressable market",
+            "baseline_guidance": "Current market position and competitive landscape analysis",
+            "target_setting": "Based on competitive strategy and market opportunity"
+          },
+          "applicability": {
+            "industries": ["technology", "retail", "manufacturing", "financial_services"],
+            "functions": ["strategy", "marketing", "sales", "executive"],
+            "contexts": ["competitive positioning", "market expansion", "category leadership"]
+          },
+          "examples": {
+            "good_usage": [
+              "Increase market share in mid-market CRM from 12% to 18%",
+              "Capture 25% of the enterprise cloud storage market",
+              "Grow from #4 to #2 market position in regional banking"
+            ],
+            "poor_usage": [
+              "Dominate the market",
+              "Beat the competition",
+              "Become market leader"
+            ],
+            "implementation_notes": [
+              "Define market boundaries clearly (geographic, segment, product)",
+              "Use multiple data sources for market size estimation",
+              "Track both absolute and relative competitive position"
+            ]
+          }
+        }
+      ]
+    },
+    "efficiency": {
+      "description": "Metrics focused on optimization, cost reduction, and productivity outcomes",
+      "metrics": [
+        {
+          "id": "efficiency_001",
+          "name": "Cost Per Acquisition (CPA)",
+          "description": "Average cost to acquire a new customer through marketing and sales efforts",
+          "category": "efficiency",
+          "type": "lagging",
+          "measurement": {
+            "method": "Total Acquisition Costs / Number of New Customers",
+            "data_sources": ["Marketing platforms", "Sales systems", "Financial systems"],
+            "calculation": "Monthly/quarterly cost per new customer",
+            "baseline_guidance": "Historical CPA by channel and customer segment",
+            "target_setting": "Based on customer lifetime value and profitability targets"
+          },
+          "applicability": {
+            "industries": ["technology", "retail", "financial_services", "professional_services"],
+            "functions": ["marketing", "sales", "finance"],
+            "contexts": ["marketing optimization", "sales efficiency", "unit economics"]
+          },
+          "examples": {
+            "good_usage": [
+              "Reduce customer acquisition cost from $150 to $100",
+              "Achieve CPA under $50 for SMB segment",
+              "Lower paid acquisition cost by 30% while maintaining volume"
+            ],
+            "poor_usage": [
+              "Reduce marketing costs",
+              "Spend less on customer acquisition",
+              "Improve acquisition efficiency"
+            ],
+            "implementation_notes": [
+              "Include fully-loaded costs (salaries, tools, overhead)",
+              "Track by acquisition channel for optimization",
+              "Balance CPA reduction with customer quality and volume"
+            ]
+          }
+        }
+      ]
+    },
+    "quality": {
+      "description": "Metrics focused on excellence, reliability, and stakeholder satisfaction",
+      "metrics": [
+        {
+          "id": "quality_001",
+          "name": "Net Promoter Score (NPS)",
+          "description": "Customer loyalty and satisfaction metric based on likelihood to recommend",
+          "category": "quality",
+          "type": "lagging",
+          "measurement": {
+            "method": "% Promoters (9-10) - % Detractors (0-6) on 0-10 recommendation scale",
+            "data_sources": ["Customer surveys", "Email campaigns", "In-app feedback"],
+            "calculation": "Monthly/quarterly NPS calculation",
+            "baseline_guidance": "Industry benchmarks and historical company performance",
+            "target_setting": "Industry leading NPS scores and improvement trajectories"
+          },
+          "applicability": {
+            "industries": ["technology", "retail", "financial_services", "healthcare"],
+            "functions": ["customer_success", "product", "marketing"],
+            "contexts": ["customer satisfaction", "brand loyalty", "customer experience"]
+          },
+          "examples": {
+            "good_usage": [
+              "Increase NPS from 32 to 50 through improved onboarding",
+              "Achieve industry-leading NPS of 70+ for enterprise customers",
+              "Reduce detractor percentage from 15% to 8%"
+            ],
+            "poor_usage": [
+              "Improve customer satisfaction",
+              "Make customers happier",
+              "Get better NPS"
+            ],
+            "implementation_notes": [
+              "Survey representative customer samples regularly",
+              "Segment NPS by customer type and product",
+              "Follow up with detractors for improvement insights"
+            ]
+          }
+        }
+      ]
+    },
+    "innovation": {
+      "description": "Metrics focused on creativity, experimentation, and future capability building",
+      "metrics": [
+        {
+          "id": "innovation_001",
+          "name": "New Product Revenue Percentage",
+          "description": "Percentage of total revenue generated from products launched within specific timeframe",
+          "category": "innovation",
+          "type": "lagging",
+          "measurement": {
+            "method": "(Revenue from Products < 2 Years Old / Total Revenue) * 100",
+            "data_sources": ["Product management systems", "Financial reporting", "Sales analytics"],
+            "calculation": "Quarterly percentage of revenue from new products",
+            "baseline_guidance": "Historical innovation revenue and industry standards",
+            "target_setting": "Based on innovation strategy and market dynamics"
+          },
+          "applicability": {
+            "industries": ["technology", "manufacturing", "consumer_goods", "healthcare"],
+            "functions": ["product", "R&D", "strategy"],
+            "contexts": ["product innovation", "market adaptation", "competitive differentiation"]
+          },
+          "examples": {
+            "good_usage": [
+              "Generate 30% of revenue from products launched in past 18 months",
+              "Achieve $5M revenue from new AI features launched this year",
+              "Increase new product revenue contribution from 15% to 25%"
+            ],
+            "poor_usage": [
+              "Launch innovative products",
+              "Be more innovative",
+              "Create new revenue streams"
+            ],
+            "implementation_notes": [
+              "Define 'new product' timeframe consistently",
+              "Track both absolute revenue and percentage contribution",
+              "Monitor new product success rates and time-to-market"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

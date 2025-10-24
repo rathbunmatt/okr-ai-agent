@@ -1,0 +1,302 @@
+{
+  "industry": "retail_ecommerce",
+  "description": "OKR examples for retail and e-commerce companies including marketplaces, DTC brands, consumer goods",
+  "last_updated": "2024-01-20",
+  "examples": [
+    {
+      "id": "retail-1",
+      "category": "industry",
+      "context": {
+        "industry": ["ecommerce", "retail"],
+        "function": ["marketing", "growth"],
+        "company_size": "scale",
+        "situation": "increasing online sales and customer acquisition"
+      },
+      "poor_version": {
+        "objective": "Grow the business online",
+        "key_results": [
+          "Launch marketing campaigns",
+          "Improve website conversion",
+          "Get more customers"
+        ],
+        "problems": [
+          "Vague objective lacking specificity",
+          "No quantifiable targets",
+          "Missing baseline metrics",
+          "Activity-focused rather than outcome-focused"
+        ],
+        "quality_score": 27
+      },
+      "good_version": {
+        "objective": "Drive profitable online growth through improved customer acquisition and retention",
+        "key_results": [
+          "Increase online revenue from $2.5M to $4M monthly (60% growth)",
+          "Improve customer acquisition cost (CAC) from $45 to $35 while maintaining quality",
+          "Achieve customer lifetime value to CAC ratio of 4:1 (from current 2.8:1)"
+        ],
+        "improvements": [
+          "Specific revenue targets with growth percentages",
+          "Efficiency metrics focusing on profitability",
+          "Balance of growth and unit economics"
+        ],
+        "quality_score": 90
+      },
+      "explanation": {
+        "transformation_rationale": "E-commerce success requires balancing growth with profitability. The focus on CAC efficiency and LTV:CAC ratio ensures sustainable growth.",
+        "key_insights": [
+          "Revenue growth without profitability is unsustainable",
+          "CAC payback period determines cash flow health",
+          "LTV:CAC ratio indicates long-term business viability"
+        ],
+        "implementation_tips": [
+          "Track CAC by channel to identify most efficient sources",
+          "Implement cohort analysis to understand true LTV",
+          "Set up automated reporting for key e-commerce metrics"
+        ]
+      },
+      "metadata": {
+        "source": "E-commerce growth expert analysis",
+        "expert_validated": true,
+        "usage_count": 42,
+        "effectiveness_score": 0.89,
+        "last_updated": "2024-01-20"
+      }
+    },
+    {
+      "id": "retail-2",
+      "category": "industry",
+      "context": {
+        "industry": ["retail", "marketplace"],
+        "function": ["operations", "supply_chain"],
+        "company_size": "enterprise",
+        "situation": "improving fulfillment efficiency and customer satisfaction"
+      },
+      "poor_version": {
+        "objective": "Make fulfillment better",
+        "key_results": [
+          "Speed up shipping",
+          "Reduce errors",
+          "Improve inventory management"
+        ],
+        "problems": [
+          "Non-specific objective",
+          "No measurable targets",
+          "Missing customer impact",
+          "Vague improvement areas"
+        ],
+        "quality_score": 25
+      },
+      "good_version": {
+        "objective": "Deliver exceptional fulfillment experience that drives customer loyalty and reduces costs",
+        "key_results": [
+          "Achieve 95% same-day fulfillment for orders placed before 2pm (from current 78%)",
+          "Reduce fulfillment cost per order from $8.50 to $6.75 through automation",
+          "Increase customer satisfaction with delivery experience from 4.2 to 4.7 (1-5 scale)"
+        ],
+        "improvements": [
+          "Specific timing and percentage targets",
+          "Cost efficiency alongside customer experience",
+          "Customer-centric outcome measurement"
+        ],
+        "quality_score": 88
+      },
+      "explanation": {
+        "transformation_rationale": "Fulfillment excellence creates competitive advantage through both cost efficiency and customer satisfaction. Speed and reliability drive repeat purchases.",
+        "key_insights": [
+          "Same-day fulfillment is becoming table stakes for retention",
+          "Automation investments pay off through scale efficiency",
+          "Delivery experience significantly impacts brand perception"
+        ],
+        "implementation_tips": [
+          "Invest in warehouse management system upgrades",
+          "Partner with multiple carriers for redundancy",
+          "Survey customers specifically about delivery experience"
+        ]
+      },
+      "metadata": {
+        "source": "Retail operations expert consultation",
+        "expert_validated": true,
+        "usage_count": 28,
+        "effectiveness_score": 0.86,
+        "last_updated": "2024-01-20"
+      }
+    },
+    {
+      "id": "retail-3",
+      "category": "industry",
+      "context": {
+        "industry": ["consumer_goods", "dtc"],
+        "function": ["product", "marketing"],
+        "company_size": "startup",
+        "situation": "launching new product line and building brand awareness"
+      },
+      "poor_version": {
+        "objective": "Launch new products successfully",
+        "key_results": [
+          "Create marketing materials",
+          "Get press coverage",
+          "Sell products"
+        ],
+        "problems": [
+          "Success not defined clearly",
+          "Activity-based rather than outcome-based",
+          "No specific targets or timelines",
+          "Missing market validation metrics"
+        ],
+        "quality_score": 26
+      },
+      "good_version": {
+        "objective": "Establish market presence for new skincare line targeting Gen Z consumers",
+        "key_results": [
+          "Achieve $500K in first-quarter sales with 25% gross margin",
+          "Build brand awareness to 15% unaided recognition in target demographic",
+          "Generate 10K+ social media followers with 8%+ engagement rate"
+        ],
+        "improvements": [
+          "Specific target audience identification",
+          "Measurable sales and margin targets",
+          "Brand metrics that matter for DTC success"
+        ],
+        "quality_score": 87
+      },
+      "explanation": {
+        "transformation_rationale": "DTC brand launches require both immediate sales validation and long-term brand building. Gen Z consumers prioritize authentic engagement over follower counts.",
+        "key_insights": [
+          "First-quarter sales validate product-market fit",
+          "Gross margin determines long-term sustainability",
+          "Engagement rate more important than follower count for Gen Z"
+        ],
+        "implementation_tips": [
+          "Use micro-influencers for authentic Gen Z reach",
+          "Track brand awareness through quarterly surveys",
+          "Focus on TikTok and Instagram for primary channels"
+        ]
+      },
+      "metadata": {
+        "source": "DTC brand launch case studies",
+        "expert_validated": true,
+        "usage_count": 22,
+        "effectiveness_score": 0.85,
+        "last_updated": "2024-01-20"
+      }
+    },
+    {
+      "id": "retail-4",
+      "category": "industry",
+      "context": {
+        "industry": ["retail", "omnichannel"],
+        "function": ["customer_experience", "technology"],
+        "company_size": "enterprise",
+        "situation": "integrating online and offline customer experiences"
+      },
+      "poor_version": {
+        "objective": "Create better omnichannel experience",
+        "key_results": [
+          "Connect systems better",
+          "Train staff on new tools",
+          "Update mobile app"
+        ],
+        "problems": [
+          "Vague definition of 'better'",
+          "Technology-focused rather than customer-focused",
+          "No measurable customer outcomes",
+          "Missing business impact"
+        ],
+        "quality_score": 28
+      },
+      "good_version": {
+        "objective": "Create seamless omnichannel experience that increases customer lifetime value",
+        "key_results": [
+          "Enable buy-online-pickup-in-store for 95% of inventory with <2 hour fulfillment",
+          "Increase cross-channel customer spend by 35% vs single-channel customers",
+          "Achieve 90% customer satisfaction with omnichannel services (via NPS survey)"
+        ],
+        "improvements": [
+          "Specific operational capabilities defined",
+          "Customer value creation as primary measure",
+          "Quantifiable customer satisfaction metrics"
+        ],
+        "quality_score": 89
+      },
+      "explanation": {
+        "transformation_rationale": "Omnichannel success is measured by customer behavior and satisfaction, not technical integration. Customers who use multiple channels typically spend more.",
+        "key_insights": [
+          "BOPIS is becoming essential for retail competitiveness",
+          "Cross-channel customers have higher lifetime value",
+          "Customer satisfaction drives omnichannel adoption"
+        ],
+        "implementation_tips": [
+          "Start with highest-turnover inventory for BOPIS",
+          "Track customer journey across all touchpoints",
+          "Train store staff as omnichannel ambassadors"
+        ]
+      },
+      "metadata": {
+        "source": "Omnichannel retail transformation study",
+        "expert_validated": true,
+        "usage_count": 33,
+        "effectiveness_score": 0.88,
+        "last_updated": "2024-01-20"
+      }
+    },
+    {
+      "id": "retail-5",
+      "category": "industry",
+      "context": {
+        "industry": ["ecommerce", "subscription"],
+        "function": ["product", "analytics"],
+        "company_size": "scale",
+        "situation": "optimizing subscription model and reducing churn"
+      },
+      "poor_version": {
+        "objective": "Improve subscription business",
+        "key_results": [
+          "Add more subscription options",
+          "Send more emails to subscribers",
+          "Analyze user behavior"
+        ],
+        "problems": [
+          "No definition of improvement",
+          "Activity metrics without outcomes",
+          "Missing key subscription metrics",
+          "No customer value focus"
+        ],
+        "quality_score": 24
+      },
+      "good_version": {
+        "objective": "Optimize subscription model to maximize customer lifetime value and reduce involuntary churn",
+        "key_results": [
+          "Reduce subscription churn rate from 15% to 8% monthly",
+          "Increase average subscription value from $47 to $65 through upsells",
+          "Achieve 85% payment success rate (from current 72%) through dunning optimization"
+        ],
+        "improvements": [
+          "Focus on key subscription health metrics",
+          "Balance retention with revenue expansion",
+          "Address involuntary churn through payment optimization"
+        ],
+        "quality_score": 91
+      },
+      "explanation": {
+        "transformation_rationale": "Subscription businesses live or die on churn rates and customer value expansion. Involuntary churn from payment failures is often the easiest win.",
+        "key_insights": [
+          "Monthly churn compounds rapidly - small improvements have big impact",
+          "Payment failures cause 20-40% of subscription churn",
+          "Upselling existing customers is more profitable than acquisition"
+        ],
+        "implementation_tips": [
+          "Implement intelligent payment retry logic",
+          "Use predictive analytics to identify churn risk",
+          "Create upgrade paths based on usage patterns"
+        ]
+      },
+      "metadata": {
+        "source": "Subscription commerce optimization guide",
+        "expert_validated": true,
+        "usage_count": 35,
+        "effectiveness_score": 0.90,
+        "last_updated": "2024-01-20"
+      }
+    }
+  ]
+}

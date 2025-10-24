@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "industry": "financial_services",
+    "subcategories": ["banking", "insurance", "investment", "payments", "wealth management"],
+    "version": "1.0.0",
+    "last_updated": "2024-01-15",
+    "total_examples": 20
+  },
+  "examples": [
+    {
+      "id": "fin_001",
+      "category": "industry",
+      "context": {
+        "industry": ["financial_services", "banking"],
+        "function": ["customer_success", "operations"],
+        "company_size": "enterprise",
+        "situation": "Regional bank needs to improve customer satisfaction and digital adoption"
+      },
+      "poor_version": {
+        "objective": "Modernize banking operations",
+        "key_results": [
+          "Launch mobile app",
+          "Digitize loan applications",
+          "Reduce branch operating costs"
+        ],
+        "problems": [
+          "Technology implementation without customer outcome focus",
+          "Process digitization without experience improvement measurement",
+          "Cost reduction without service quality protection",
+          "No customer satisfaction or adoption metrics"
+        ],
+        "quality_score": 32
+      },
+      "good_version": {
+        "objective": "Transform customer banking experience through seamless digital-first service",
+        "key_results": [
+          "Increase customer satisfaction scores from 7.2 to 8.5 while expanding digital services",
+          "Achieve 75% digital adoption for routine transactions (up from 45%)",
+          "Reduce average loan approval time from 14 days to 3 days with same approval quality"
+        ],
+        "improvements": [
+          "Customer satisfaction as primary success measure",
+          "Digital adoption rates show successful technology implementation",
+          "Speed improvement with quality safeguards",
+          "Balances operational efficiency with customer experience"
+        ],
+        "quality_score": 89
+      },
+      "explanation": {
+        "transformation_rationale": "Banking modernization must improve customer experience while maintaining trust and regulatory compliance. The improved OKR focuses on customer outcomes and service quality while achieving operational improvements.",
+        "key_insights": [
+          "Customer satisfaction is critical for financial services retention",
+          "Digital adoption requires customer value, not just technology availability",
+          "Loan processing speed affects customer experience and competitive positioning",
+          "Operational changes must maintain service quality and regulatory compliance"
+        ],
+        "implementation_tips": [
+          "Regular customer satisfaction surveys with specific digital experience questions",
+          "Track digital transaction adoption rates by customer segment",
+          "Implement loan processing automation with quality control checkpoints",
+          "Monitor service quality metrics during digital transformation"
+        ]
+      },
+      "metadata": {
+        "source": "Banking digital transformation",
+        "expert_validated": true,
+        "usage_count": 0,
+        "effectiveness_score": 0,
+        "last_updated": "2024-01-15T00:00:00Z"
+      }
+    },
+    {
+      "id": "fin_002",
+      "category": "industry",
+      "context": {
+        "industry": ["financial_services", "insurance"],
+        "function": ["sales", "customer_success"],
+        "company_size": "scale",
+        "situation": "Insurance company needs to improve claims processing and customer retention"
+      },
+      "poor_version": {
+        "objective": "Improve claims processing",
+        "key_results": [
+          "Implement new claims system",
+          "Train claims adjusters",
+          "Reduce operational costs"
+        ],
+        "problems": [
+          "System implementation without outcome measurement",
+          "Training activity without effectiveness assessment",
+          "Cost reduction without customer impact consideration",
+          "No customer satisfaction or retention metrics"
+        ],
+        "quality_score": 28
+      },
+      "good_version": {
+        "objective": "Deliver industry-leading claims experience that strengthens customer loyalty",
+        "key_results": [
+          "Reduce average claims resolution time from 21 days to 7 days",
+          "Achieve 90% customer satisfaction rating for claims experience",
+          "Increase customer retention rate by 5 percentage points post-claims"
+        ],
+        "improvements": [
+          "Speed improvement with specific timeline commitments",
+          "Customer satisfaction as quality measure",
+          "Retention focus shows long-term business impact",
+          "Claims experience linked to customer loyalty outcomes"
+        ],
+        "quality_score": 91
+      },
+      "explanation": {
+        "transformation_rationale": "Insurance claims processing is a critical customer experience moment that affects retention and brand perception. The improved OKR focuses on speed, satisfaction, and loyalty outcomes rather than internal processes.",
+        "key_insights": [
+          "Claims experience significantly impacts customer retention and referrals",
+          "Processing speed is a key differentiator in insurance industry",
+          "Customer satisfaction during claims predicts future loyalty",
+          "Claims handling quality affects brand reputation and competitive position"
+        ],
+        "implementation_tips": [
+          "Implement automated claims routing and processing workflows",
+          "Survey customers immediately after claims resolution",
+          "Track retention rates specifically for customers who filed claims",
+          "Use AI for fraud detection to speed legitimate claims processing"
+        ]
+      },
+      "metadata": {
+        "source": "Insurance claims optimization",
+        "expert_validated": true,
+        "usage_count": 0,
+        "effectiveness_score": 0,
+        "last_updated": "2024-01-15T00:00:00Z"
+      }
+    }
+  ]
+}

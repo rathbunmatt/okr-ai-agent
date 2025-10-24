@@ -1,0 +1,348 @@
+{
+  "description": "Before/after transformations showing how to reframe common OKR anti-patterns",
+  "last_updated": "2024-01-20",
+  "reframing_strategies": [
+    {
+      "pattern_id": "activity_focused",
+      "strategy": "outcome_focus",
+      "examples": [
+        {
+          "id": "activity-1",
+          "context": "Product development team focusing on feature delivery",
+          "before": {
+            "objective": "Build better product features",
+            "key_results": [
+              "Launch 3 new features",
+              "Fix 50 bugs",
+              "Improve code quality"
+            ],
+            "problems": [
+              "Focuses on outputs (features) rather than outcomes (user value)",
+              "No measurement of user impact",
+              "Activity-based metrics without business connection"
+            ]
+          },
+          "after": {
+            "objective": "Increase user engagement through valuable feature experiences",
+            "key_results": [
+              "Achieve 60% adoption rate for new collaborative editing feature within 30 days",
+              "Reduce user-reported critical issues from 12/month to <3/month",
+              "Increase user session duration from 8 to 12 minutes average"
+            ],
+            "improvements": [
+              "User-centric outcomes with adoption metrics",
+              "Quality measured by user experience",
+              "Engagement metrics showing value creation"
+            ]
+          },
+          "reframing_technique": {
+            "questions": [
+              "What user outcome will these features create?",
+              "How will users behave differently when we succeed?",
+              "What business metric will improve as a result?"
+            ],
+            "approach": "five_whys",
+            "explanation": "By asking 'why' we want to build features, we uncover the real user outcomes we're trying to drive. This shifts focus from delivery to impact."
+          }
+        },
+        {
+          "id": "activity-2",
+          "context": "Sales team focusing on hiring and activities",
+          "before": {
+            "objective": "Build a stronger sales team",
+            "key_results": [
+              "Hire 5 new sales reps",
+              "Conduct 100 sales training sessions",
+              "Implement new CRM system"
+            ],
+            "problems": [
+              "Inputs (hiring, training) rather than outputs (revenue)",
+              "No measurement of sales effectiveness",
+              "Process focus without outcome measurement"
+            ]
+          },
+          "after": {
+            "objective": "Accelerate revenue growth through improved sales execution",
+            "key_results": [
+              "Increase monthly recurring revenue from $500K to $750K",
+              "Improve average deal size from $25K to $40K",
+              "Achieve 35% win rate on qualified opportunities (from current 22%)"
+            ],
+            "improvements": [
+              "Revenue outcomes as primary measure",
+              "Deal quality and efficiency metrics",
+              "Competitive success measurement"
+            ]
+          },
+          "reframing_technique": {
+            "questions": [
+              "What revenue outcome are we trying to achieve?",
+              "How will we measure sales team effectiveness?",
+              "What customer behavior changes indicate success?"
+            ],
+            "approach": "stakeholder_value",
+            "explanation": "Reframe hiring and training as means to an end. The real objective is revenue growth and sales effectiveness."
+          }
+        }
+      ]
+    },
+    {
+      "pattern_id": "vanity_metrics",
+      "strategy": "measurement_driven",
+      "examples": [
+        {
+          "id": "vanity-1",
+          "context": "Marketing team focusing on awareness metrics",
+          "before": {
+            "objective": "Increase brand awareness",
+            "key_results": [
+              "Get 50K social media followers",
+              "Achieve 100K website visits per month",
+              "Reach 25% brand awareness in target market"
+            ],
+            "problems": [
+              "Awareness metrics without conversion connection",
+              "Vanity metrics that don't drive business value",
+              "No measurement of behavior change"
+            ]
+          },
+          "after": {
+            "objective": "Drive qualified lead generation through strategic brand building",
+            "key_results": [
+              "Generate 500 marketing qualified leads per month (from current 180)",
+              "Achieve 15% lead-to-customer conversion rate (from current 8%)",
+              "Increase organic search traffic to 40K monthly visits with 3% conversion"
+            ],
+            "improvements": [
+              "Lead generation as primary business outcome",
+              "Conversion metrics showing business value",
+              "Organic growth with conversion focus"
+            ]
+          },
+          "reframing_technique": {
+            "questions": [
+              "What business action should awareness drive?",
+              "How do we measure interest becoming intent?",
+              "What conversion metrics matter most for growth?"
+            ],
+            "approach": "measurement_driven",
+            "explanation": "Transform awareness metrics into business value metrics. Focus on the customer journey from awareness to action."
+          }
+        },
+        {
+          "id": "vanity-2",
+          "context": "Content team focusing on engagement metrics",
+          "before": {
+            "objective": "Create engaging content",
+            "key_results": [
+              "Achieve 1M content views per month",
+              "Get 10K social media shares",
+              "Reach 500K content impressions"
+            ],
+            "problems": [
+              "Volume metrics without value measurement",
+              "Engagement without conversion tracking",
+              "Reach metrics without audience quality"
+            ]
+          },
+          "after": {
+            "objective": "Drive customer acquisition through valuable content experiences",
+            "key_results": [
+              "Generate 300 content-driven leads per month with 20% sales qualification rate",
+              "Achieve 25% email signup rate from blog content (from current 12%)",
+              "Increase content-to-trial conversion rate from 3% to 8%"
+            ],
+            "improvements": [
+              "Lead generation as content outcome",
+              "Email capture showing audience building",
+              "Trial conversion connecting content to product"
+            ]
+          },
+          "reframing_technique": {
+            "questions": [
+              "What action should content inspire?",
+              "How does content quality translate to business value?",
+              "What conversion metrics show content effectiveness?"
+            ],
+            "approach": "stakeholder_value",
+            "explanation": "Reframe content success from consumption to conversion. Measure how content drives the customer journey forward."
+          }
+        }
+      ]
+    },
+    {
+      "pattern_id": "vague_outcome",
+      "strategy": "measurement_driven",
+      "examples": [
+        {
+          "id": "vague-1",
+          "context": "Customer success team with improvement goal",
+          "before": {
+            "objective": "Improve customer experience",
+            "key_results": [
+              "Make customers happier",
+              "Reduce customer complaints",
+              "Increase customer satisfaction"
+            ],
+            "problems": [
+              "No specific measurement of happiness or satisfaction",
+              "Relative terms without baselines or targets",
+              "Subjective outcomes without objective metrics"
+            ]
+          },
+          "after": {
+            "objective": "Maximize customer lifetime value through exceptional experience delivery",
+            "key_results": [
+              "Increase Net Promoter Score from 32 to 55",
+              "Reduce customer churn rate from 8% to 5% monthly",
+              "Achieve 90% first-call resolution rate (from current 67%)"
+            ],
+            "improvements": [
+              "NPS provides standardized satisfaction measurement",
+              "Churn rate shows retention impact",
+              "Resolution rate measures service efficiency"
+            ]
+          },
+          "reframing_technique": {
+            "questions": [
+              "How do we measure customer happiness objectively?",
+              "What behavior change indicates better experience?",
+              "Which metrics predict customer lifetime value?"
+            ],
+            "approach": "measurement_driven",
+            "explanation": "Transform subjective experience goals into measurable customer behavior and standardized satisfaction metrics."
+          }
+        },
+        {
+          "id": "vague-2",
+          "context": "Operations team with efficiency goal",
+          "before": {
+            "objective": "Optimize operational efficiency",
+            "key_results": [
+              "Make processes faster",
+              "Reduce operational costs",
+              "Improve team productivity"
+            ],
+            "problems": [
+              "Comparative terms without specific measurement",
+              "No baseline or target specification",
+              "Productivity improvement without definition"
+            ]
+          },
+          "after": {
+            "objective": "Achieve operational excellence through measurable efficiency gains",
+            "key_results": [
+              "Reduce order fulfillment time from 3 days to 24 hours",
+              "Decrease operational cost per unit from $12 to $8.50",
+              "Increase team output from 150 to 220 units per person per day"
+            ],
+            "improvements": [
+              "Specific timing improvements with clear targets",
+              "Unit cost reduction with precise measurement",
+              "Productivity measured in concrete output terms"
+            ]
+          },
+          "reframing_technique": {
+            "questions": [
+              "What specific process timing can we measure?",
+              "How do we calculate cost per unit of output?",
+              "What concrete productivity metrics matter most?"
+            ],
+            "approach": "measurement_driven",
+            "explanation": "Convert efficiency concepts into specific, measurable operational metrics with clear baselines and targets."
+          }
+        }
+      ]
+    },
+    {
+      "pattern_id": "binary_thinking",
+      "strategy": "ambition_calibration",
+      "examples": [
+        {
+          "id": "binary-1",
+          "context": "Compliance team with certification goal",
+          "before": {
+            "objective": "Achieve compliance certification",
+            "key_results": [
+              "Complete SOC 2 audit successfully",
+              "Pass security assessment",
+              "Obtain ISO 27001 certification"
+            ],
+            "problems": [
+              "Binary success/failure without measurement of excellence",
+              "No timeline or efficiency metrics",
+              "Pass/fail thinking without degrees of success"
+            ]
+          },
+          "after": {
+            "objective": "Establish security excellence through comprehensive compliance achievement",
+            "key_results": [
+              "Achieve SOC 2 Type II certification within 6 months with zero audit findings",
+              "Complete security assessment with 95%+ score and remediate all critical items within 30 days",
+              "Obtain ISO 27001 certification while reducing compliance overhead from 40 to 20 hours/month"
+            ],
+            "improvements": [
+              "Timeline and excellence measures added",
+              "Scoring system with remediation speed",
+              "Efficiency improvement alongside certification"
+            ]
+          },
+          "reframing_technique": {
+            "questions": [
+              "How can we measure degrees of success beyond pass/fail?",
+              "What timeline would demonstrate organizational capability?",
+              "How can we achieve compliance efficiently?"
+            ],
+            "approach": "ambition_calibration",
+            "explanation": "Add measurement dimensions to binary goals: timeline, quality score, efficiency, and process improvement."
+          }
+        }
+      ]
+    },
+    {
+      "pattern_id": "kitchen_sink",
+      "strategy": "clarity_improvement",
+      "examples": [
+        {
+          "id": "kitchen-sink-1",
+          "context": "Leadership team with broad transformation goal",
+          "before": {
+            "objective": "Transform the business through growth, efficiency, and innovation",
+            "key_results": [
+              "Increase revenue and reduce costs and improve products",
+              "Expand internationally while optimizing operations and enhancing culture",
+              "Launch new services and upgrade technology and develop talent"
+            ],
+            "problems": [
+              "Too many unrelated outcomes in single objective",
+              "Lack of focus and prioritization",
+              "No coherent strategy connecting elements"
+            ]
+          },
+          "after": {
+            "objective": "Drive sustainable growth through operational excellence",
+            "key_results": [
+              "Increase revenue from $10M to $15M while maintaining 25%+ gross margin",
+              "Reduce operational cost per customer from $45 to $30 through automation",
+              "Achieve 95% customer satisfaction score while expanding to 2 new markets"
+            ],
+            "improvements": [
+              "Single coherent theme: sustainable growth",
+              "Related metrics that reinforce each other",
+              "Clear strategic connection between outcomes"
+            ]
+          },
+          "reframing_technique": {
+            "questions": [
+              "What's the one most important outcome we need to achieve?",
+              "How do these different goals support each other?",
+              "What would focus look like for this objective?"
+            ],
+            "approach": "clarity_improvement",
+            "explanation": "Choose one primary theme and ensure all key results support that central outcome. Remove unrelated elements."
+          }
+        }
+      ]
+    }
+  ]
+}

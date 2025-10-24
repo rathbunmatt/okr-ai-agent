@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "function": "product_engineering",
+    "subcategories": ["product management", "software development", "DevOps", "QA", "technical leadership"],
+    "version": "1.0.0",
+    "last_updated": "2024-01-15",
+    "total_examples": 30
+  },
+  "examples": [
+    {
+      "id": "prod_001",
+      "category": "function",
+      "context": {
+        "industry": ["technology", "all"],
+        "function": ["product", "engineering"],
+        "company_size": "scale",
+        "situation": "Product team needs to improve development velocity while maintaining quality"
+      },
+      "poor_version": {
+        "objective": "Deliver more features faster",
+        "key_results": [
+          "Deploy code 5x per week instead of 1x",
+          "Reduce bug count by 50%",
+          "Ship 20 features this quarter"
+        ],
+        "problems": [
+          "Speed focus without quality or user value consideration",
+          "Deployment frequency without reliability or rollback capability",
+          "Feature count ignores customer impact or business value",
+          "Bug reduction without user experience or severity context"
+        ],
+        "quality_score": 25
+      },
+      "good_version": {
+        "objective": "Accelerate value delivery through reliable, customer-focused development",
+        "key_results": [
+          "Increase feature adoption rate from 40% to 70% within 30 days of release",
+          "Achieve 99.5% deployment success rate with <5 minute rollback capability",
+          "Reduce customer-reported critical bugs from 15 to 3 per month"
+        ],
+        "improvements": [
+          "Feature adoption measures customer value creation",
+          "Deployment reliability with quick recovery capability",
+          "Customer-focused bug prioritization",
+          "Balances speed with quality and user impact"
+        ],
+        "quality_score": 92
+      },
+      "explanation": {
+        "transformation_rationale": "Development velocity should be measured by customer value delivered, not just output volume. The improved OKR focuses on adoption, reliability, and customer experience while enabling rapid iteration.",
+        "key_insights": [
+          "Feature adoption rate indicates product-market fit and user value",
+          "Deployment reliability enables confident rapid iteration",
+          "Customer-reported bugs have higher business impact than internal bug counts",
+          "Speed must be balanced with quality to avoid technical debt"
+        ],
+        "implementation_tips": [
+          "Implement feature usage analytics and adoption tracking",
+          "Set up automated deployment pipelines with health checks",
+          "Prioritize customer support tickets for bug identification",
+          "Use feature flags for safe, rapid feature rollouts"
+        ]
+      },
+      "metadata": {
+        "source": "Agile product development",
+        "expert_validated": true,
+        "usage_count": 0,
+        "effectiveness_score": 0,
+        "last_updated": "2024-01-15T00:00:00Z"
+      }
+    },
+    {
+      "id": "prod_002",
+      "category": "function",
+      "context": {
+        "industry": ["technology", "all"],
+        "function": ["engineering", "DevOps"],
+        "company_size": "enterprise",
+        "situation": "Engineering team needs to improve system reliability and operational efficiency"
+      },
+      "poor_version": {
+        "objective": "Improve system performance",
+        "key_results": [
+          "Upgrade to latest framework version",
+          "Implement microservices architecture",
+          "Add more monitoring dashboards"
+        ],
+        "problems": [
+          "Technology upgrades without performance outcome measurement",
+          "Architecture change without business justification",
+          "Monitoring without incident reduction or reliability improvement",
+          "Internal technical focus without customer or business impact"
+        ],
+        "quality_score": 30
+      },
+      "good_version": {
+        "objective": "Deliver rock-solid reliability that customers and business teams can depend on",
+        "key_results": [
+          "Achieve 99.95% uptime with maximum 2 hours unplanned downtime per month",
+          "Reduce mean time to recovery (MTTR) from 45 minutes to 10 minutes",
+          "Decrease customer-impacting incidents from 12 to 3 per month"
+        ],
+        "improvements": [
+          "Specific uptime targets with business impact context",
+          "Recovery speed improvement reducing customer impact",
+          "Customer-focused incident measurement",
+          "Reliability outcomes that enable business growth"
+        ],
+        "quality_score": 94
+      },
+      "explanation": {
+        "transformation_rationale": "System reliability should be measured by customer and business impact, not internal technical metrics. The improved OKR focuses on uptime, recovery speed, and customer experience during incidents.",
+        "key_insights": [
+          "Uptime directly affects customer trust and business revenue",
+          "Fast incident recovery minimizes customer and business impact",
+          "Customer-impacting incidents are more important than internal system issues",
+          "Reliability enables business teams to make commitments confidently"
+        ],
+        "implementation_tips": [
+          "Implement comprehensive uptime monitoring and alerting",
+          "Develop incident response runbooks and automation",
+          "Track customer impact severity, not just technical incident count",
+          "Regular disaster recovery and incident response testing"
+        ]
+      },
+      "metadata": {
+        "source": "Site reliability engineering",
+        "expert_validated": true,
+        "usage_count": 0,
+        "effectiveness_score": 0,
+        "last_updated": "2024-01-15T00:00:00Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,350 @@
+{
+  "description": "Metric suggestions organized by outcome type with measurement guidance",
+  "last_updated": "2024-01-20",
+  "outcome_types": {
+    "growth": {
+      "description": "Metrics for business expansion, market growth, and scale objectives",
+      "metrics": [
+        {
+          "id": "revenue-growth",
+          "name": "Revenue Growth Rate",
+          "description": "Percentage increase in revenue over a specific time period",
+          "category": "growth",
+          "type": "lagging",
+          "measurement": {
+            "method": "Calculate percentage change in revenue between periods",
+            "data_sources": ["CRM", "accounting system", "payment processor"],
+            "calculation": "((Current Period Revenue - Previous Period Revenue) / Previous Period Revenue) × 100",
+            "baseline_guidance": "Use same period from previous year or rolling 12-month average",
+            "target_setting": "Industry benchmarks: SaaS 20-40% YoY, E-commerce 15-30% YoY"
+          },
+          "applicability": {
+            "industries": ["technology", "retail", "services", "manufacturing"],
+            "functions": ["sales", "executive", "marketing"],
+            "contexts": ["expansion", "market_entry", "product_launch"]
+          },
+          "examples": {
+            "good_usage": [
+              "Increase monthly recurring revenue from $500K to $750K (50% growth)",
+              "Grow total revenue from $2M to $3.2M annually (60% growth)",
+              "Achieve quarterly revenue growth of 25% vs previous year"
+            ],
+            "poor_usage": [
+              "Increase revenue significantly",
+              "Make more money this year",
+              "Grow revenue better than last quarter"
+            ],
+            "implementation_notes": [
+              "Track monthly for faster feedback cycles",
+              "Segment by product line or customer type for actionable insights",
+              "Consider seasonality in target setting"
+            ]
+          }
+        },
+        {
+          "id": "customer-acquisition",
+          "name": "Customer Acquisition Rate",
+          "description": "Number of new customers gained per time period",
+          "category": "growth",
+          "type": "leading",
+          "measurement": {
+            "method": "Count new customers who complete first purchase or subscription",
+            "data_sources": ["CRM", "subscription management", "e-commerce platform"],
+            "calculation": "Sum of new customers in specified time period",
+            "baseline_guidance": "Calculate average from previous 6 months, account for seasonality",
+            "target_setting": "Set based on sales capacity, marketing budget, and conversion rates"
+          },
+          "applicability": {
+            "industries": ["technology", "retail", "services", "subscription"],
+            "functions": ["sales", "marketing", "growth"],
+            "contexts": ["market_expansion", "product_launch", "scaling"]
+          },
+          "examples": {
+            "good_usage": [
+              "Acquire 200 new enterprise customers per month",
+              "Grow customer base from 5K to 8K customers",
+              "Add 50 new paid subscribers weekly"
+            ],
+            "poor_usage": [
+              "Get more customers",
+              "Increase customer base",
+              "Find new buyers"
+            ],
+            "implementation_notes": [
+              "Define clear customer qualification criteria",
+              "Track acquisition cost alongside quantity",
+              "Segment by customer value tier"
+            ]
+          }
+        },
+        {
+          "id": "market-share",
+          "name": "Market Share Growth",
+          "description": "Percentage of total available market captured",
+          "category": "growth",
+          "type": "lagging",
+          "measurement": {
+            "method": "Calculate company revenue as percentage of total market size",
+            "data_sources": ["industry reports", "competitive intelligence", "internal revenue"],
+            "calculation": "(Company Revenue / Total Market Size) × 100",
+            "baseline_guidance": "Use industry research reports for market size estimates",
+            "target_setting": "Research competitive landscape and set realistic capture targets"
+          },
+          "applicability": {
+            "industries": ["any with measurable market size"],
+            "functions": ["strategy", "executive", "business_development"],
+            "contexts": ["competitive_strategy", "market_leadership", "expansion"]
+          },
+          "examples": {
+            "good_usage": [
+              "Capture 15% market share in enterprise security (from current 8%)",
+              "Become #2 player with 25% share in local food delivery",
+              "Achieve 12% share of addressable cloud storage market"
+            ],
+            "poor_usage": [
+              "Gain market share",
+              "Beat the competition",
+              "Become market leader"
+            ],
+            "implementation_notes": [
+              "Define addressable market carefully",
+              "Track competitor movements quarterly",
+              "Consider market expansion vs share capture"
+            ]
+          }
+        }
+      ]
+    },
+    "efficiency": {
+      "description": "Metrics for operational improvement, cost reduction, and productivity enhancement",
+      "metrics": [
+        {
+          "id": "cost-per-unit",
+          "name": "Cost Per Unit",
+          "description": "Total cost to produce or deliver one unit of product/service",
+          "category": "efficiency",
+          "type": "lagging",
+          "measurement": {
+            "method": "Divide total costs by number of units produced/delivered",
+            "data_sources": ["accounting system", "production data", "operations metrics"],
+            "calculation": "Total Costs (Direct + Indirect) / Total Units Produced",
+            "baseline_guidance": "Calculate average over 3-6 months to account for variability",
+            "target_setting": "Benchmark against industry standards and historical performance"
+          },
+          "applicability": {
+            "industries": ["manufacturing", "services", "retail", "technology"],
+            "functions": ["operations", "finance", "production"],
+            "contexts": ["cost_optimization", "scaling", "margin_improvement"]
+          },
+          "examples": {
+            "good_usage": [
+              "Reduce cost per order fulfillment from $8.50 to $6.25",
+              "Decrease customer acquisition cost from $150 to $95",
+              "Lower cost per software deployment from $500 to $200"
+            ],
+            "poor_usage": [
+              "Reduce costs",
+              "Be more efficient",
+              "Lower expenses"
+            ],
+            "implementation_notes": [
+              "Include all relevant cost components",
+              "Track quality metrics alongside cost reduction",
+              "Monitor for unintended consequences on quality"
+            ]
+          }
+        },
+        {
+          "id": "automation-rate",
+          "name": "Process Automation Rate",
+          "description": "Percentage of process steps completed without manual intervention",
+          "category": "efficiency",
+          "type": "leading",
+          "measurement": {
+            "method": "Calculate ratio of automated to total process steps",
+            "data_sources": ["workflow systems", "process documentation", "time tracking"],
+            "calculation": "(Automated Steps / Total Process Steps) × 100",
+            "baseline_guidance": "Audit current processes to establish baseline automation level",
+            "target_setting": "Identify high-impact processes for automation priority"
+          },
+          "applicability": {
+            "industries": ["manufacturing", "technology", "financial_services", "healthcare"],
+            "functions": ["operations", "it", "finance", "customer_service"],
+            "contexts": ["digital_transformation", "cost_reduction", "scalability"]
+          },
+          "examples": {
+            "good_usage": [
+              "Automate 80% of customer onboarding process (from current 35%)",
+              "Achieve 90% automated testing coverage for software deployments",
+              "Automate 70% of invoice processing workflow"
+            ],
+            "poor_usage": [
+              "Automate more processes",
+              "Use more technology",
+              "Reduce manual work"
+            ],
+            "implementation_notes": [
+              "Focus on high-volume, repetitive processes first",
+              "Measure time savings and error reduction",
+              "Ensure automation doesn't compromise quality"
+            ]
+          }
+        }
+      ]
+    },
+    "quality": {
+      "description": "Metrics for product/service quality, customer satisfaction, and reliability",
+      "metrics": [
+        {
+          "id": "defect-rate",
+          "name": "Defect Rate",
+          "description": "Percentage of products/services that fail to meet quality standards",
+          "category": "quality",
+          "type": "lagging",
+          "measurement": {
+            "method": "Calculate ratio of defective units to total units produced",
+            "data_sources": ["quality control systems", "customer complaints", "return data"],
+            "calculation": "(Defective Units / Total Units Produced) × 100",
+            "baseline_guidance": "Establish clear definition of defects and track consistently",
+            "target_setting": "Set based on industry standards and customer expectations"
+          },
+          "applicability": {
+            "industries": ["manufacturing", "technology", "food", "healthcare"],
+            "functions": ["quality_assurance", "production", "customer_service"],
+            "contexts": ["quality_improvement", "customer_satisfaction", "compliance"]
+          },
+          "examples": {
+            "good_usage": [
+              "Reduce software bug escape rate from 3.2% to <1%",
+              "Achieve <0.5% defect rate in manufacturing (from current 2.1%)",
+              "Lower customer-reported issue rate from 5% to 2%"
+            ],
+            "poor_usage": [
+              "Improve quality",
+              "Reduce defects",
+              "Make better products"
+            ],
+            "implementation_notes": [
+              "Define defects clearly and consistently",
+              "Track both internal and customer-discovered defects",
+              "Implement preventive measures, not just detection"
+            ]
+          }
+        },
+        {
+          "id": "customer-satisfaction",
+          "name": "Net Promoter Score (NPS)",
+          "description": "Measure of customer loyalty and satisfaction based on likelihood to recommend",
+          "category": "quality",
+          "type": "both",
+          "measurement": {
+            "method": "Survey customers with 0-10 likelihood to recommend question",
+            "data_sources": ["customer surveys", "feedback platforms", "email surveys"],
+            "calculation": "% Promoters (9-10) - % Detractors (0-6)",
+            "baseline_guidance": "Survey representative sample monthly or quarterly",
+            "target_setting": "Excellent: 50+, Good: 30-50, Needs Improvement: <30"
+          },
+          "applicability": {
+            "industries": ["all industries with customers"],
+            "functions": ["customer_success", "product", "executive"],
+            "contexts": ["customer_experience", "product_improvement", "retention"]
+          },
+          "examples": {
+            "good_usage": [
+              "Increase NPS from 32 to 55",
+              "Achieve NPS >50 for enterprise customers",
+              "Maintain NPS >60 while scaling to 10K customers"
+            ],
+            "poor_usage": [
+              "Improve customer satisfaction",
+              "Make customers happier",
+              "Get better feedback"
+            ],
+            "implementation_notes": [
+              "Include follow-up questions for context",
+              "Segment by customer type and product",
+              "Close the loop with respondents"
+            ]
+          }
+        }
+      ]
+    },
+    "innovation": {
+      "description": "Metrics for new product development, R&D effectiveness, and market innovation",
+      "metrics": [
+        {
+          "id": "innovation-pipeline",
+          "name": "Innovation Pipeline Health",
+          "description": "Number and quality of new ideas progressing through development stages",
+          "category": "innovation",
+          "type": "leading",
+          "measurement": {
+            "method": "Track projects by development stage with success probability weighting",
+            "data_sources": ["project management systems", "innovation platforms", "R&D data"],
+            "calculation": "Sum of (Projects × Stage Success Probability) by stage",
+            "baseline_guidance": "Establish stages and historical success rates for each stage",
+            "target_setting": "Set targets for each stage based on resource capacity and goals"
+          },
+          "applicability": {
+            "industries": ["technology", "pharmaceuticals", "manufacturing", "consumer_goods"],
+            "functions": ["r&d", "product", "innovation"],
+            "contexts": ["new_product_development", "competitive_advantage", "growth"]
+          },
+          "examples": {
+            "good_usage": [
+              "Maintain 20 projects in early stage, 8 in development, 3 in pilot",
+              "Achieve 60% success rate from concept to launch",
+              "Generate $2M revenue pipeline from innovation projects"
+            ],
+            "poor_usage": [
+              "Work on more innovative projects",
+              "Be more creative",
+              "Develop new ideas"
+            ],
+            "implementation_notes": [
+              "Define clear stage gates and criteria",
+              "Balance breakthrough vs incremental innovation",
+              "Track both quantity and quality of pipeline"
+            ]
+          }
+        },
+        {
+          "id": "time-to-market",
+          "name": "Time to Market",
+          "description": "Duration from concept to product launch or feature release",
+          "category": "innovation",
+          "type": "leading",
+          "measurement": {
+            "method": "Track time from defined start point to market availability",
+            "data_sources": ["project management", "development tools", "launch tracking"],
+            "calculation": "Average days from concept approval to market launch",
+            "baseline_guidance": "Establish clear start and end point definitions",
+            "target_setting": "Benchmark against industry standards and competitive needs"
+          },
+          "applicability": {
+            "industries": ["technology", "consumer_goods", "automotive", "fashion"],
+            "functions": ["product", "r&d", "marketing"],
+            "contexts": ["competitive_advantage", "agility", "market_responsiveness"]
+          },
+          "examples": {
+            "good_usage": [
+              "Reduce time to market from 18 months to 12 months for major features",
+              "Launch new products within 6 months of concept approval",
+              "Achieve 90-day sprint-to-market capability for competitive responses"
+            ],
+            "poor_usage": [
+              "Launch products faster",
+              "Speed up development",
+              "Be more agile"
+            ],
+            "implementation_notes": [
+              "Define consistent measurement points",
+              "Balance speed with quality",
+              "Track both planned and actual timeframes"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,259 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "last_updated": "2024-01-15",
+    "total_patterns": 15,
+    "description": "Common OKR anti-patterns with detection rules and reframing strategies"
+  },
+  "anti_patterns": [
+    {
+      "id": "ap_001",
+      "name": "Activity-Based Objectives",
+      "description": "Objectives that describe what you will do instead of what change you will create",
+      "detection": {
+        "keywords": ["build", "create", "implement", "launch", "deploy", "develop", "establish", "set up"],
+        "regex_patterns": [
+          "^(Build|Create|Implement|Launch|Deploy|Develop|Establish|Set up)\\s+",
+          "\\b(system|platform|process|tool|feature|product)\\b.*\\b(for|to improve|to enhance)\\b"
+        ],
+        "contextual_rules": [
+          "Objective starts with action verb focused on creation/implementation",
+          "Contains technology or process nouns without outcome context",
+          "No stakeholder value or business impact mentioned"
+        ]
+      },
+      "examples": {
+        "triggers": [
+          "Build a customer portal",
+          "Implement new CRM system",
+          "Launch mobile app",
+          "Create employee training program"
+        ],
+        "contexts": ["Technology implementations", "Process improvements", "Product launches", "System rollouts"]
+      },
+      "reframing": {
+        "strategy": "outcome_focus",
+        "questions": [
+          "What change will this create for users/customers?",
+          "What problem does this solve?",
+          "How will success be measured?",
+          "What value will stakeholders receive?"
+        ],
+        "example_transformations": [
+          {
+            "before": "Build a customer portal",
+            "after": "Empower customers with self-service capabilities that reduce support burden",
+            "explanation": "Shifted focus from building technology to customer empowerment and business outcome"
+          },
+          {
+            "before": "Implement new CRM system",
+            "after": "Transform sales efficiency through improved customer relationship insights",
+            "explanation": "Changed from system implementation to sales performance transformation"
+          }
+        ]
+      },
+      "metadata": {
+        "severity": "high",
+        "frequency": 0.65,
+        "success_rate": 0.87
+      }
+    },
+    {
+      "id": "ap_002",
+      "name": "Unmeasurable Key Results",
+      "description": "Key results that cannot be objectively measured or lack specific targets",
+      "detection": {
+        "keywords": ["improve", "enhance", "better", "increase", "reduce", "optimize"],
+        "regex_patterns": [
+          "\\b(improve|enhance|better|increase|reduce|optimize)\\b(?!.*\\b\\d+)",
+          "\\b(more|less|higher|lower|faster|slower)\\b(?!.*\\b\\d+)",
+          "\\b(significantly|substantially|greatly|dramatically)\\b"
+        ],
+        "contextual_rules": [
+          "Contains improvement words without specific numbers",
+          "Uses relative terms without baseline or target",
+          "Includes subjective language like 'better' or 'improved'"
+        ]
+      },
+      "examples": {
+        "triggers": [
+          "Improve customer satisfaction",
+          "Reduce response times",
+          "Increase team productivity",
+          "Enhance product quality"
+        ],
+        "contexts": ["Performance improvements", "Quality initiatives", "Customer experience", "Operational efficiency"]
+      },
+      "reframing": {
+        "strategy": "measurement_driven",
+        "questions": [
+          "What is the current baseline?",
+          "What specific target represents success?",
+          "How will this be measured?",
+          "What data source will track progress?"
+        ],
+        "example_transformations": [
+          {
+            "before": "Improve customer satisfaction",
+            "after": "Increase customer satisfaction score from 7.2 to 8.5 (NPS methodology)",
+            "explanation": "Added specific baseline, target, and measurement methodology"
+          },
+          {
+            "before": "Reduce response times",
+            "after": "Reduce average support ticket response time from 24 hours to 4 hours",
+            "explanation": "Specified what response time, current state, and target improvement"
+          }
+        ]
+      },
+      "metadata": {
+        "severity": "critical",
+        "frequency": 0.72,
+        "success_rate": 0.91
+      }
+    },
+    {
+      "id": "ap_003",
+      "name": "Business-As-Usual Objectives",
+      "description": "Objectives that describe normal operational activities rather than stretch goals",
+      "detection": {
+        "keywords": ["maintain", "continue", "keep", "sustain", "ensure", "monitor"],
+        "regex_patterns": [
+          "^(Maintain|Continue|Keep|Sustain|Ensure|Monitor)\\s+",
+          "\\b(as usual|current level|existing|ongoing)\\b"
+        ],
+        "contextual_rules": [
+          "Objective focused on maintaining status quo",
+          "No improvement or transformation indicated",
+          "Describes regular operational responsibilities"
+        ]
+      },
+      "examples": {
+        "triggers": [
+          "Maintain current sales levels",
+          "Continue providing excellent customer service",
+          "Ensure compliance with regulations",
+          "Keep systems running smoothly"
+        ],
+        "contexts": ["Operational maintenance", "Compliance requirements", "Service continuation", "System operations"]
+      },
+      "reframing": {
+        "strategy": "stakeholder_value",
+        "questions": [
+          "What improvement opportunity exists?",
+          "How could we create additional value?",
+          "What would breakthrough performance look like?",
+          "What challenge or opportunity are we not addressing?"
+        ],
+        "example_transformations": [
+          {
+            "before": "Maintain current sales levels",
+            "after": "Accelerate revenue growth through expanded market penetration",
+            "explanation": "Shifted from maintenance to growth-focused value creation"
+          },
+          {
+            "before": "Continue providing excellent customer service",
+            "after": "Transform customer experience into competitive advantage",
+            "explanation": "Changed from service maintenance to differentiation strategy"
+          }
+        ]
+      },
+      "metadata": {
+        "severity": "medium",
+        "frequency": 0.45,
+        "success_rate": 0.83
+      }
+    },
+    {
+      "id": "ap_004",
+      "name": "Too Many Key Results",
+      "description": "Having more than 5 key results per objective, diluting focus",
+      "detection": {
+        "keywords": ["and", "also", "additionally", "furthermore"],
+        "regex_patterns": [
+          "(KR|Key Result)\\s+[6-9]:",
+          "(KR|Key Result)\\s+1[0-9]:"
+        ],
+        "contextual_rules": [
+          "More than 5 key results listed for single objective",
+          "Multiple unrelated measurement areas",
+          "Lack of prioritization among key results"
+        ]
+      },
+      "examples": {
+        "triggers": [
+          "6+ key results for one objective",
+          "Mix of unrelated metrics in single OKR",
+          "Everything marked as 'high priority'"
+        ],
+        "contexts": ["Complex projects", "Cross-functional initiatives", "Comprehensive improvement efforts"]
+      },
+      "reframing": {
+        "strategy": "five_whys",
+        "questions": [
+          "Which 3-5 results are most critical for the objective?",
+          "Can some results be combined or moved to separate OKRs?",
+          "What are the leading indicators vs lagging indicators?",
+          "Which metrics directly measure objective success?"
+        ],
+        "example_transformations": [
+          {
+            "before": "7 key results covering revenue, costs, quality, speed, satisfaction, compliance, and training",
+            "after": "3 key results focusing on revenue growth, customer satisfaction, and operational efficiency",
+            "explanation": "Consolidated related metrics and separated concerns into focused OKRs"
+          }
+        ]
+      },
+      "metadata": {
+        "severity": "medium",
+        "frequency": 0.38,
+        "success_rate": 0.79
+      }
+    },
+    {
+      "id": "ap_005",
+      "name": "Sandbagging with Easy Targets",
+      "description": "Setting key results that are too easy to achieve, lacking appropriate ambition",
+      "detection": {
+        "keywords": ["at least", "minimum", "no less than"],
+        "regex_patterns": [
+          "\\b(at least|minimum|no less than|ensure|maintain)\\b.*\\d+",
+          "\\b(slight|small|minor|modest)\\b.*\\b(increase|improvement|growth)\\b"
+        ],
+        "contextual_rules": [
+          "Targets represent minimal acceptable performance",
+          "No stretch or challenge in the metrics",
+          "Historical performance suggests targets are easily achievable"
+        ]
+      },
+      "examples": {
+        "triggers": [
+          "Increase revenue by at least 2% (when industry growth is 15%)",
+          "Maintain customer satisfaction above 6.0 (current is 8.2)",
+          "Achieve minimum 50% target completion (historical is 85%)"
+        ],
+        "contexts": ["Risk-averse environments", "Performance maintenance", "Conservative planning"]
+      },
+      "reframing": {
+        "strategy": "five_whys",
+        "questions": [
+          "What would breakthrough performance look like?",
+          "What's the industry benchmark or best practice?",
+          "What would represent a significant achievement?",
+          "How can we stretch beyond comfortable targets?"
+        ],
+        "example_transformations": [
+          {
+            "before": "Increase revenue by at least 2%",
+            "after": "Accelerate revenue growth to 12% through market expansion",
+            "explanation": "Set ambitious but achievable target based on market opportunity"
+          }
+        ]
+      },
+      "metadata": {
+        "severity": "high",
+        "frequency": 0.42,
+        "success_rate": 0.85
+      }
+    }
+  ]
+}

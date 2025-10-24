@@ -1,0 +1,185 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "last_updated": "2024-01-15",
+    "total_templates": 25,
+    "description": "Template objectives for common business scenarios with customization guidance"
+  },
+  "templates": {
+    "growth_acceleration": {
+      "id": "template_001",
+      "title": "Accelerate Growth",
+      "objective_template": "Accelerate [business metric] growth through [strategy/method]",
+      "description": "For teams focused on scaling revenue, customers, or market presence",
+      "variables": {
+        "business_metric": ["revenue", "customer acquisition", "market share", "user adoption"],
+        "strategy": ["market expansion", "product innovation", "customer success", "operational excellence"]
+      },
+      "example_objectives": [
+        "Accelerate revenue growth through enterprise market expansion",
+        "Accelerate customer acquisition through product-led growth strategy",
+        "Accelerate market share growth through competitive differentiation"
+      ],
+      "typical_key_results": [
+        "Increase [metric] from [baseline] to [target] by [timeframe]",
+        "Achieve [percentage] growth rate in [segment/area]",
+        "Expand [capability/market/product] resulting in [outcome]"
+      ],
+      "applicable_contexts": {
+        "industries": ["technology", "retail", "financial_services"],
+        "functions": ["sales", "marketing", "product", "executive"],
+        "company_stages": ["startup", "scale", "enterprise"]
+      },
+      "customization_guide": {
+        "technology_companies": "Focus on user acquisition, ARR growth, market expansion",
+        "retail_companies": "Emphasize customer acquisition, sales growth, market penetration",
+        "service_companies": "Highlight client growth, service expansion, market development"
+      }
+    },
+    "operational_excellence": {
+      "id": "template_002",
+      "title": "Achieve Operational Excellence",
+      "objective_template": "Transform [operational area] through [improvement approach] to [outcome]",
+      "description": "For teams focused on efficiency, quality, and reliability improvements",
+      "variables": {
+        "operational_area": ["customer service", "product delivery", "system reliability", "process efficiency"],
+        "improvement_approach": ["automation", "standardization", "optimization", "digital transformation"],
+        "outcome": ["cost reduction", "quality improvement", "speed enhancement", "reliability gains"]
+      },
+      "example_objectives": [
+        "Transform customer service through automation to achieve world-class satisfaction",
+        "Transform system reliability through monitoring and automation to eliminate downtime",
+        "Transform product delivery through process optimization to accelerate time-to-market"
+      ],
+      "typical_key_results": [
+        "Reduce [metric] from [baseline] to [target] while maintaining [quality standard]",
+        "Achieve [reliability/quality standard] with [measurement criteria]",
+        "Improve [efficiency metric] by [percentage/amount] through [method]"
+      ],
+      "applicable_contexts": {
+        "industries": ["manufacturing", "healthcare", "financial_services", "technology"],
+        "functions": ["operations", "engineering", "customer_success"],
+        "company_stages": ["scale", "enterprise"]
+      },
+      "customization_guide": {
+        "manufacturing": "Focus on production efficiency, quality control, supply chain optimization",
+        "healthcare": "Emphasize patient outcomes, safety metrics, operational efficiency",
+        "technology": "Highlight system reliability, deployment efficiency, customer experience"
+      }
+    },
+    "customer_experience": {
+      "id": "template_003",
+      "title": "Transform Customer Experience",
+      "objective_template": "Deliver [experience quality] customer experience that [business outcome]",
+      "description": "For teams focused on customer satisfaction, loyalty, and experience improvement",
+      "variables": {
+        "experience_quality": ["exceptional", "seamless", "personalized", "world-class"],
+        "business_outcome": ["drives loyalty", "increases retention", "generates referrals", "accelerates growth"]
+      },
+      "example_objectives": [
+        "Deliver exceptional customer experience that drives industry-leading loyalty",
+        "Deliver seamless omnichannel experience that increases customer lifetime value",
+        "Deliver personalized customer journey that generates sustainable referral growth"
+      ],
+      "typical_key_results": [
+        "Increase customer satisfaction score from [baseline] to [target]",
+        "Achieve [retention rate] customer retention rate",
+        "Generate [number/percentage] customer referrals resulting in [business impact]"
+      ],
+      "applicable_contexts": {
+        "industries": ["retail", "financial_services", "technology", "healthcare"],
+        "functions": ["customer_success", "marketing", "product", "sales"],
+        "company_stages": ["startup", "scale", "enterprise"]
+      },
+      "customization_guide": {
+        "retail": "Focus on shopping experience, customer service, loyalty programs",
+        "technology": "Emphasize user experience, product adoption, customer success",
+        "healthcare": "Highlight patient experience, care coordination, satisfaction outcomes"
+      }
+    },
+    "market_leadership": {
+      "id": "template_004",
+      "title": "Establish Market Leadership",
+      "objective_template": "Establish [market position] leadership in [market/category] through [competitive advantage]",
+      "description": "For teams focused on competitive positioning and market dominance",
+      "variables": {
+        "market_position": ["category", "thought", "innovation", "quality"],
+        "market": ["enterprise software", "healthcare technology", "fintech", "e-commerce"],
+        "competitive_advantage": ["product superiority", "customer experience", "innovation", "operational excellence"]
+      },
+      "example_objectives": [
+        "Establish category leadership in mid-market CRM through product superiority",
+        "Establish thought leadership in healthcare AI through innovation and expertise",
+        "Establish market leadership in regional banking through customer experience excellence"
+      ],
+      "typical_key_results": [
+        "Achieve [market share percentage] market share in [segment]",
+        "Rank #[position] in [industry analysis/category] by [authority]",
+        "Generate [metric] indicating leadership position (awards, recognition, media)"
+      ],
+      "applicable_contexts": {
+        "industries": ["technology", "professional_services", "financial_services"],
+        "functions": ["marketing", "product", "strategy", "executive"],
+        "company_stages": ["scale", "enterprise"]
+      },
+      "customization_guide": {
+        "technology": "Focus on innovation metrics, market share, analyst recognition",
+        "professional_services": "Emphasize thought leadership, client wins, industry recognition",
+        "manufacturing": "Highlight quality leadership, market position, competitive wins"
+      }
+    },
+    "digital_transformation": {
+      "id": "template_005",
+      "title": "Drive Digital Transformation",
+      "objective_template": "Transform [business area] through digital innovation to [strategic outcome]",
+      "description": "For teams modernizing business processes, technology, or customer interactions",
+      "variables": {
+        "business_area": ["customer engagement", "operations", "product delivery", "employee experience"],
+        "strategic_outcome": ["competitive advantage", "operational efficiency", "customer value", "business growth"]
+      },
+      "example_objectives": [
+        "Transform customer engagement through digital innovation to create competitive advantage",
+        "Transform operations through automation and AI to achieve breakthrough efficiency",
+        "Transform product delivery through cloud-native architecture to accelerate innovation"
+      ],
+      "typical_key_results": [
+        "Achieve [percentage] digital adoption rate for [process/service]",
+        "Reduce [manual process] time from [baseline] to [target] through automation",
+        "Increase [digital capability metric] by [amount/percentage] enabling [business outcome]"
+      ],
+      "applicable_contexts": {
+        "industries": ["financial_services", "healthcare", "manufacturing", "retail"],
+        "functions": ["IT", "operations", "product", "strategy"],
+        "company_stages": ["enterprise", "scale"]
+      },
+      "customization_guide": {
+        "financial_services": "Focus on digital banking, automated processes, customer self-service",
+        "healthcare": "Emphasize patient portals, digital health, telemedicine adoption",
+        "retail": "Highlight e-commerce, omnichannel, customer data platforms"
+      }
+    }
+  },
+  "usage_guidelines": {
+    "template_selection": {
+      "growth_focused": "Use growth_acceleration template for revenue, customer, or market expansion goals",
+      "efficiency_focused": "Use operational_excellence template for cost, speed, or quality improvements",
+      "customer_focused": "Use customer_experience template for satisfaction, retention, or loyalty goals",
+      "competitive_focused": "Use market_leadership template for positioning or competitive advantage goals",
+      "modernization_focused": "Use digital_transformation template for technology or process modernization"
+    },
+    "customization_process": [
+      "1. Select template based on primary strategic focus",
+      "2. Choose variables that match industry and context",
+      "3. Customize language for company culture and terminology",
+      "4. Add specific metrics and targets relevant to business",
+      "5. Validate with stakeholders and refine as needed"
+    ],
+    "quality_checks": [
+      "Objective focuses on outcome, not activity",
+      "Language inspires and motivates the team",
+      "Success criteria are specific and measurable",
+      "Timeframe is challenging but achievable",
+      "Stakeholder value is clearly articulated"
+    ]
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "category": "universal",
+    "version": "1.0.0",
+    "last_updated": "2024-01-15",
+    "total_examples": 15,
+    "description": "Cross-industry outcome patterns applicable to multiple contexts"
+  },
+  "universal_patterns": [
+    {
+      "id": "universal_001",
+      "pattern": "Customer Success Transformation",
+      "description": "Transform how customers experience value from your product/service",
+      "template": "Transform [customer interaction] to [desired outcome] that [business benefit]",
+      "examples": [
+        {
+          "context": "SaaS onboarding",
+          "objective": "Transform new user onboarding to achieve rapid value realization that drives retention",
+          "key_results": [
+            "Increase time-to-first-value from 14 days to 3 days",
+            "Achieve 85% user activation rate within 30 days",
+            "Reduce trial-to-paid conversion time by 50%"
+          ]
+        },
+        {
+          "context": "Healthcare patient experience",
+          "objective": "Transform patient journey to deliver coordinated care that improves outcomes",
+          "key_results": [
+            "Reduce average appointment wait time from 3 weeks to 1 week",
+            "Achieve 95% patient satisfaction with care coordination",
+            "Decrease patient readmission rates by 25%"
+          ]
+        }
+      ],
+      "applicability": {
+        "industries": ["all"],
+        "functions": ["customer_success", "product", "operations"],
+        "outcome_types": ["quality", "efficiency", "growth"]
+      }
+    },
+    {
+      "id": "universal_002",
+      "pattern": "Competitive Advantage Creation",
+      "description": "Establish sustainable competitive advantages that drive business results",
+      "template": "Establish [type of advantage] that [competitive outcome] resulting in [business impact]",
+      "examples": [
+        {
+          "context": "Technology product differentiation",
+          "objective": "Establish product superiority that wins competitive deals resulting in market leadership",
+          "key_results": [
+            "Achieve 75% win rate against top 3 competitors",
+            "Increase average deal size by 40% through premium positioning",
+            "Generate 50+ competitive proof points and case studies"
+          ]
+        },
+        {
+          "context": "Service quality differentiation",
+          "objective": "Establish service excellence that generates customer advocacy resulting in referral growth",
+          "key_results": [
+            "Achieve industry-leading NPS score of 75+",
+            "Generate 40% of new business through referrals",
+            "Maintain 95%+ customer retention rate"
+          ]
+        }
+      ],
+      "applicability": {
+        "industries": ["all"],
+        "functions": ["strategy", "marketing", "product", "sales"],
+        "outcome_types": ["growth", "quality", "innovation"]
+      }
+    },
+    {
+      "id": "universal_003",
+      "pattern": "Operational Excellence Achievement",
+      "description": "Achieve breakthrough operational performance that enables business growth",
+      "template": "Achieve [excellence area] that [operational outcome] enabling [business capability]",
+      "examples": [
+        {
+          "context": "Manufacturing efficiency",
+          "objective": "Achieve production excellence that reduces costs enabling competitive pricing",
+          "key_results": [
+            "Reduce unit production cost by 20% while maintaining quality",
+            "Achieve 99.5% production uptime with predictive maintenance",
+            "Decrease time-to-market for new products by 30%"
+          ]
+        },
+        {
+          "context": "Software delivery",
+          "objective": "Achieve deployment reliability that accelerates innovation enabling market responsiveness",
+          "key_results": [
+            "Achieve 99.9% deployment success rate with automated rollback",
+            "Reduce feature delivery time from 4 weeks to 1 week",
+            "Enable 10x daily deployment frequency with zero downtime"
+          ]
+        }
+      ],
+      "applicability": {
+        "industries": ["all"],
+        "functions": ["operations", "engineering", "manufacturing"],
+        "outcome_types": ["efficiency", "quality", "innovation"]
+      }
+    }
+  ]
+}

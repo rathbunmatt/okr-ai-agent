@@ -1,0 +1,728 @@
+<task>
+  <metadata>
+    <phase>2</phase>
+    <title>Conversation Engine Core Development</title>
+    <timeline>Days 4-8</timeline>
+    <token_budget>150K</token_budget>
+    <agent_persona>ai/ml specialist + conversation designer</agent_persona>
+    <complexity>ultra</complexity>
+    <dependencies>Phase 1 infrastructure must be operational</dependencies>
+  </metadata>
+
+  <instructions>
+    You are implementing Phase 2 of the OKR AI Agent project. Your role combines AI/ML expertise with conversation design specialization. This is the most critical phase - implementing the intelligent conversation engine that transforms how humans create OKRs by preventing the common anti-pattern of disguising project plans as OKRs.
+
+    CRITICAL SUCCESS CRITERIA:
+    - Complete 4-phase conversation flow (Discovery → Refinement → KR Discovery → Validation)
+    - Functional quality scoring engine implementing full 5-dimension rubric
+    - Anti-pattern detection preventing activity-based OKRs
+    - Context-aware coaching responses with reframing techniques
+    - Session state management preserving conversation context
+  </instructions>
+
+  <context>
+    <phase_1_outcomes>
+      Infrastructure completed successfully:
+      - SQLite database with full schema operational
+      - Claude API integration working with conversation context
+      - Express server with WebSocket support ready
+      - Environment configuration and security measures active
+      - Development environment prepared for complex logic implementation
+    </phase_1_outcomes>
+
+    <core_challenge>
+      HUMAN BEHAVIOR PROBLEM: Users consistently create activity-based OKRs instead of outcome-focused ones:
+      ❌ Poor: "Objective: Launch new mobile app" / "KR: App successfully launched"
+      ❌ Poor: "Objective: Implement CRM system" / "KR: CRM system implemented"
+      ✅ Good: "Objective: Delight customers with instant access" / "KR: Reduce response time from 5s to 0.5s"
+      ✅ Good: "Objective: Transform sales productivity" / "KR: Reduce admin time by 40%"
+
+      The AI must detect these patterns and guide users toward outcome-thinking through intelligent questioning.
+    </core_challenge>
+
+    <conversation_design_principles>
+      1. **Always Redirect from Activities to Outcomes**: When users mention deliverables, ask "What change will this create?"
+      2. **Use Five Whys Technique**: Keep asking "why" until reaching business/customer value
+      3. **Provide Concrete Examples**: Show good vs bad OKRs in user's context
+      4. **Maintain Conversational Flow**: Feel natural, not robotic or checklist-driven
+      5. **Build Progressive Understanding**: Each phase builds on previous discoveries
+      6. **Celebrate Progress**: Acknowledge when users grasp outcome-thinking
+    </conversation_design_principles>
+
+    <quality_rubric_implementation>
+      Based on comprehensive scoring system from project documentation:
+
+      OBJECTIVE SCORING (0-100):
+      - Outcome Orientation (30%): Describes future state, not activities
+      - Inspirational Quality (20%): Energizing language that motivates
+      - Clarity & Memorability (15%): <15 words, jargon-free, memorable
+      - Strategic Alignment (15%): Clear business value and importance
+      - Appropriate Ambition (20%): 70% achievement would be celebrated
+
+      KEY RESULT SCORING (0-100):
+      - Quantification Quality (25%): Specific numbers with baseline and target
+      - Outcome vs Activity (30%): Measures change in state, not task completion
+      - Measurement Feasibility (15%): Data available and trackable
+      - Independence (15%): Team controls outcome, minimal external dependencies
+      - Challenge Level (15%): Requires stretch, 70% achievement optimal
+    </quality_rubric_implementation>
+  </context>
+
+  <phase_deliverables>
+    <deliverable priority="critical">
+      <title>ConversationManager Core Engine</title>
+      <description>Central orchestrator managing multi-phase dialogue flow with state persistence</description>
+      <implementation_requirements>
+        - Session state management with complex context preservation
+        - Phase transition logic (Discovery → Refinement → KR Discovery → Validation)
+        - Integration with Claude API for contextual conversation
+        - Anti-pattern detection triggering reframing responses
+        - Quality score integration influencing conversation strategy
+        - WebSocket integration for real-time UI updates
+      </implementation_requirements>
+      <conversation_phases>
+        <phase name="discovery" duration="5-10 minutes">
+          - Context and scope identification
+          - Aspiration discovery through impact questions
+          - Challenge identification and obstacle analysis
+          - Stakeholder benefit exploration
+          - Excitement validation for inspirational objectives
+        </phase>
+        <phase name="objective_refinement" duration="10-15 minutes">
+          - Five Whys technique implementation
+          - Activity-to-outcome transformation
+          - Language enhancement for inspiration
+          - Strategic alignment validation
+          - Ambition calibration (70% target achievement)
+        </phase>
+        <phase name="key_results_discovery" duration="15-20 minutes">
+          - Metric brainstorming with category prompts
+          - Activity-to-outcome conversion for measurements
+          - Baseline and target specification
+          - Feasibility and independence validation
+          - Balance of leading/lagging indicators
+        </phase>
+        <phase name="validation" duration="5-10 minutes">
+          - Complete OKR quality review
+          - Stranger test, excitement test, value test
+          - Final adjustments and polishing
+          - Export preparation and next steps guidance
+        </phase>
+      </conversation_phases>
+      <acceptance_criteria>
+        - Can conduct full 30-45 minute OKR creation conversation
+        - Seamlessly transitions between all four phases
+        - Maintains context and builds on previous responses
+        - Integrates with quality scoring for real-time feedback
+        - Persists conversation state to database
+        - Handles user interruptions and conversation restarts
+      </acceptance_criteria>
+    </deliverable>
+
+    <deliverable priority="critical">
+      <title>Quality Scoring Engine</title>
+      <description>Comprehensive OKR evaluation implementing full 5-dimension rubric</description>
+      <scoring_components>
+        <objective_scorer>
+          - Outcome orientation detection (activity language patterns)
+          - Inspirational quality assessment (emotional language analysis)
+          - Clarity scoring (word count, jargon detection, memorability)
+          - Strategic alignment evaluation (business value indicators)
+          - Ambition level calibration (stretch vs achievable assessment)
+        </objective_scorer>
+        <key_result_scorer>
+          - Quantification validation (numbers, baselines, targets present)
+          - Outcome vs activity classification (change vs task detection)
+          - Measurement feasibility analysis (data availability assessment)
+          - Independence evaluation (team control vs external dependencies)
+          - Challenge level optimization (70% achievement calibration)
+        </key_result_scorer>
+        <overall_scorer>
+          - Coherence between objective and key results
+          - Appropriate number of KRs (3-5 optimal)
+          - Balance of different measurement types
+          - Overall system health and achievability
+        </overall_scorer>
+      </scoring_components>
+      <real_time_integration>
+        - Score calculation after each user input
+        - Intervention triggers based on score thresholds
+        - Progress tracking throughout conversation
+        - Feedback generation tied to specific score dimensions
+        - Visual indicators for frontend display
+      </real_time_integration>
+      <acceptance_criteria>
+        - Accurately identifies activity-based vs outcome-focused objectives
+        - Scores align with expert human evaluation (>85% agreement)
+        - Real-time scoring completes in <200ms
+        - Generates specific, actionable feedback for improvement
+        - Tracks score progression throughout conversation
+        - Integrates seamlessly with conversation flow
+      </acceptance_criteria>
+    </deliverable>
+
+    <deliverable priority="critical">
+      <title>Anti-Pattern Detection System</title>
+      <description>Intelligent recognition and correction of common OKR mistakes</description>
+      <detection_patterns>
+        <activity_language>
+          Triggers: "implement", "launch", "complete", "deliver", "build", "create"
+          Response: "That sounds like a project milestone! Let's explore what change [activity] will create for your users/customers."
+        </activity_language>
+        <binary_goals>
+          Triggers: Done/not-done language, project completion indicators
+          Response: "This seems binary - either complete or not. What measurable improvement will we see once this is finished?"
+        </binary_goals>
+        <vanity_metrics>
+          Triggers: "followers", "downloads", "page views" without business context
+          Response: "These are interesting numbers, but how do they connect to business value? What happens when you achieve this metric?"
+        </vanity_metrics>
+        <business_as_usual>
+          Triggers: Regular job duties, maintenance activities
+          Response: "This sounds like important ongoing work. For OKRs, let's focus on improvements - how could you excel beyond normal execution?"
+        </business_as_usual>
+        <kitchen_sink>
+          Triggers: >5 key results, overlapping measurements
+          Response: "You have lots of great metrics! Let's focus on the 3-4 that best indicate success. Which ones are most critical?"
+        </kitchen_sink>
+      </detection_patterns>
+      <reframing_strategies>
+        <five_whys_implementation>
+          - Systematic "why" questioning until reaching business value
+          - Context-aware follow-up questions
+          - Recognition when true value is reached
+          - Smooth transition back to OKR creation
+        </five_whys_implementation>
+        <outcome_transformation>
+          - "What happens after [activity]?" questioning
+          - "How will [stakeholder] benefit?" exploration
+          - "What problem does this solve?" investigation
+          - "What changes for users when this succeeds?" analysis
+        </outcome_transformation>
+        <example_provision>
+          - Context-appropriate good/bad OKR examples
+          - Industry-specific illustration
+          - Before/after reframing demonstrations
+          - Success story references when relevant
+        </example_provision>
+      </reframing_strategies>
+      <acceptance_criteria>
+        - Detects >90% of common anti-patterns in test scenarios
+        - Reframing suggestions improve OKR quality scores by >20 points
+        - Responses feel natural and conversational, not robotic
+        - Successfully guides users from activity to outcome thinking
+        - Integrates smoothly with overall conversation flow
+      </acceptance_criteria>
+    </deliverable>
+
+    <deliverable priority="high">
+      <title>Conversation Context System</title>
+      <description>Sophisticated state management preserving dialogue context and building understanding</description>
+      <context_components>
+        <user_profile>
+          - Industry and function context
+          - Communication patterns and preferences
+          - Learning style (quick learner vs needs examples)
+          - Resistance patterns (activity-focused, metric-resistant, etc.)
+        </user_profile>
+        <conversation_memory>
+          - Previous responses and user reactions
+          - Successful reframing techniques used
+          - Topics that generated enthusiasm
+          - Areas requiring additional explanation
+        </conversation_memory>
+        <okr_evolution>
+          - Objective draft progression with quality scores
+          - Key results development and refinement
+          - Abandoned ideas and reasons for changes
+          - Decision points and user insights
+        </okr_evolution>
+        <session_metadata>
+          - Phase timing and efficiency metrics
+          - Intervention frequency and success rate
+          - Quality score progression
+          - User engagement indicators
+        </session_metadata>
+      </context_components>
+      <intelligent_adaptation>
+        - Response style adaptation based on user preferences
+        - Example selection based on industry/function context
+        - Intervention intensity based on user receptiveness
+        - Pacing adjustment based on engagement signals
+      </intelligent_adaptation>
+      <acceptance_criteria>
+        - Context preserved across all conversation phases
+        - Intelligent adaptation improves conversation quality
+        - Session state restoration after interruption
+        - Memory influences strategy selection appropriately
+        - Metadata capture supports learning and improvement
+      </acceptance_criteria>
+    </deliverable>
+
+    <deliverable priority="high">
+      <title>Prompt Engineering System</title>
+      <description>Sophisticated prompt construction for different conversation phases and contexts</description>
+      <prompt_templates>
+        <discovery_prompts>
+          - Opening context-setting questions
+          - Aspiration discovery techniques
+          - Impact exploration strategies
+          - Challenge identification approaches
+        </discovery_prompts>
+        <refinement_prompts>
+          - Five Whys questioning sequences
+          - Activity-to-outcome reframing
+          - Language enhancement suggestions
+          - Ambition calibration guidance
+        </refinement_prompts>
+        <kr_discovery_prompts>
+          - Metric brainstorming facilitation
+          - Category-specific measurement suggestions
+          - Baseline and target specification
+          - Feasibility validation questions
+        </kr_discovery_prompts>
+        <validation_prompts>
+          - Quality test administration
+          - Final refinement suggestions
+          - Export preparation and next steps
+          - Learning reinforcement strategies
+        </validation_prompts>
+      </prompt_templates>
+      <dynamic_construction>
+        - Context-aware prompt selection
+        - User history integration
+        - Quality score influence on prompting
+        - Anti-pattern detection triggering specific prompts
+      </dynamic_construction>
+      <claude_integration>
+        - Proper system message construction
+        - Context window management for long conversations
+        - Response validation and error handling
+        - Token usage optimization
+      </claude_integration>
+      <acceptance_criteria>
+        - Prompts generate contextually appropriate Claude responses
+        - System messages effectively constrain Claude behavior
+        - Context window usage optimized for conversation length
+        - Error handling prevents conversation breakdown
+        - Token usage stays within budget constraints
+      </acceptance_criteria>
+    </deliverable>
+  </phase_deliverables>
+
+  <implementation_steps>
+    <step order="1" duration="8 hours">
+      <title>Design and Implement Core ConversationManager</title>
+      <actions>
+        - Create ConversationManager class with phase state machine
+        - Implement session persistence and restoration
+        - Build basic four-phase conversation flow structure
+        - Integrate with existing database and Claude API infrastructure
+        - Add WebSocket integration for real-time state updates
+      </actions>
+      <focus_areas>
+        - Clean separation of concerns between conversation logic and persistence
+        - Robust state machine preventing invalid phase transitions
+        - Error handling for network issues and API failures
+        - Context preservation across phases and session interruptions
+      </focus_areas>
+      <validation>ConversationManager can orchestrate basic conversation flow with phase transitions</validation>
+    </step>
+
+    <step order="2" duration="12 hours">
+      <title>Build Quality Scoring Engine</title>
+      <actions>
+        - Implement ObjectiveScorer with 5-dimension evaluation
+        - Create KeyResultScorer with comprehensive measurement assessment
+        - Build OverallScorer for system-level quality evaluation
+        - Integrate real-time scoring with conversation flow
+        - Create feedback generation system tied to score dimensions
+      </actions>
+      <focus_areas>
+        - Accurate detection of activity vs outcome language patterns
+        - Robust quantification validation for key results
+        - Performance optimization for real-time scoring
+        - Clear, actionable feedback generation
+      </focus_areas>
+      <validation>Scoring system accurately evaluates test OKRs and generates appropriate feedback</validation>
+    </step>
+
+    <step order="3" duration="10 hours">
+      <title>Implement Anti-Pattern Detection and Reframing</title>
+      <actions>
+        - Create AntiPatternDetector with comprehensive pattern recognition
+        - Implement reframing strategies (Five Whys, outcome transformation)
+        - Build contextual response generation for detected patterns
+        - Integrate detection with conversation flow and scoring
+        - Test reframing effectiveness with sample conversations
+      </actions>
+      <focus_areas>
+        - Natural, conversational reframing responses
+        - Successful transformation from activity to outcome thinking
+        - Integration with quality scoring to measure reframing success
+        - Persistent coaching until breakthrough moments achieved
+      </focus_areas>
+      <validation>System successfully redirects activity-based inputs to outcome-focused OKRs</validation>
+    </step>
+
+    <step order="4" duration="8 hours">
+      <title>Develop Conversation Context and Memory System</title>
+      <actions>
+        - Implement comprehensive context tracking (user profile, conversation memory)
+        - Build intelligent adaptation based on user patterns and preferences
+        - Create context-aware response selection and strategy adjustment
+        - Integrate context system with all conversation components
+        - Add session metadata collection for learning and improvement
+      </actions>
+      <focus_areas>
+        - Sophisticated pattern recognition for user adaptation
+        - Memory integration that enhances rather than complicates conversation
+        - Privacy protection while maintaining useful context
+        - Performance optimization for context operations
+      </focus_areas>
+      <validation>Context system demonstrably improves conversation quality and user experience</validation>
+    </step>
+
+    <step order="5" duration="12 hours">
+      <title>Build Comprehensive Prompt Engineering System</title>
+      <actions>
+        - Create prompt templates for all conversation phases
+        - Implement dynamic prompt construction based on context and state
+        - Optimize Claude integration with proper system messages
+        - Build token usage management and context window optimization
+        - Create response validation and error recovery systems
+      </actions>
+      <focus_areas>
+        - Prompts that consistently generate high-quality Claude responses
+        - Efficient token usage while maintaining conversation quality
+        - Robust error handling for API issues and unexpected responses
+        - Context window management for lengthy conversations
+      </focus_areas>
+      <validation>Prompt system generates contextually appropriate, high-quality responses consistently</validation>
+    </step>
+
+    <step order="6" duration="6 hours">
+      <title>Integration Testing and Optimization</title>
+      <actions>
+        - Test complete conversation flows with various user scenarios
+        - Optimize performance for real-time requirements (<45 minutes total)
+        - Validate quality scoring accuracy against expert evaluations
+        - Test anti-pattern detection with comprehensive scenario library
+        - Performance tune for memory usage and response times
+      </actions>
+      <focus_areas>
+        - End-to-end conversation quality meets standards
+        - Performance targets achieved (response times, memory usage)
+        - Quality scoring accuracy validates against human expertise
+        - Anti-pattern detection catches edge cases reliably
+      </focus_areas>
+      <validation>Complete system conducts high-quality OKR creation conversations consistently</validation>
+    </step>
+  </implementation_steps>
+
+  <technical_specifications>
+    <conversation_manager_interface>
+      <class_definition>
+        class ConversationManager {
+          private sessions: Map<string, ConversationSession>;
+          private claude: ClaudeClient;
+          private scorer: QualityScorer;
+          private antiPatternDetector: AntiPatternDetector;
+          private knowledgeBase: KnowledgeBase;
+          private contextManager: ContextManager;
+
+          async processMessage(sessionId: string, message: string): Promise<ConversationResponse>;
+          private determineStrategy(session: ConversationSession): ConversationStrategy;
+          private applyReframing(input: string, context: Context): ReframingResult;
+          private transitionPhase(session: ConversationSession, newPhase: ConversationPhase): void;
+          private updateContext(session: ConversationSession, interaction: Interaction): void;
+        }
+      </class_definition>
+
+      <response_structure>
+        interface ConversationResponse {
+          message: string;
+          phase: ConversationPhase;
+          qualityScores: QualityScores;
+          suggestions: string[];
+          metadata: ResponseMetadata;
+          sessionState: SessionState;
+        }
+      </response_structure>
+
+      <session_state_structure>
+        interface ConversationSession {
+          id: string;
+          userId: string;
+          phase: ConversationPhase;
+          context: UserContext;
+          messages: Message[];
+          objectiveDraft: ObjectiveDraft | null;
+          keyResultsDrafts: KeyResultDraft[];
+          qualityHistory: QualityScore[];
+          metadata: SessionMetadata;
+          createdAt: Date;
+          updatedAt: Date;
+        }
+      </session_state_structure>
+    </conversation_manager_interface>
+
+    <quality_scoring_specifications>
+      <objective_scoring>
+        interface ObjectiveScore {
+          overall: number; // 0-100
+          dimensions: {
+            outcomeOrientation: number; // 0-100, weight 30%
+            inspiration: number; // 0-100, weight 20%
+            clarity: number; // 0-100, weight 15%
+            alignment: number; // 0-100, weight 15%
+            ambition: number; // 0-100, weight 20%
+          };
+          feedback: Feedback[];
+          improvements: Improvement[];
+        }
+
+        class ObjectiveScorer {
+          score(objective: string, context: Context): ObjectiveScore;
+          private scoreOutcomeOrientation(text: string): number;
+          private scoreInspiration(text: string): number;
+          private scoreClarity(text: string): number;
+          private scoreAlignment(text: string, context: Context): number;
+          private scoreAmbition(text: string): number;
+          private generateFeedback(scores: DimensionScores): Feedback[];
+        }
+      </objective_scoring>
+
+      <key_result_scoring>
+        interface KeyResultScore {
+          overall: number; // 0-100
+          dimensions: {
+            quantification: number; // 0-100, weight 25%
+            outcomeVsActivity: number; // 0-100, weight 30%
+            feasibility: number; // 0-100, weight 15%
+            independence: number; // 0-100, weight 15%
+            challenge: number; // 0-100, weight 15%
+          };
+          feedback: Feedback[];
+          improvements: Improvement[];
+        }
+      </key_result_scoring>
+
+      <scoring_thresholds>
+        Excellence: 90-100 points
+        Good: 75-89 points
+        Acceptable: 60-74 points
+        Needs Work: 40-59 points
+        Poor: 0-39 points
+
+        Intervention Triggers:
+        - Score <25: Major intervention required
+        - Score 25-49: Significant coaching needed
+        - Score 50-74: Targeted improvements
+        - Score 75-89: Minor refinements
+        - Score 90+: Celebrate and polish
+      </scoring_thresholds>
+    </quality_scoring_specifications>
+
+    <anti_pattern_detection>
+      <pattern_definitions>
+        interface AntiPattern {
+          id: string;
+          name: string;
+          description: string;
+          detectionRegex: RegExp[];
+          keywordTriggers: string[];
+          contextualRules: Rule[];
+          reframingStrategy: ReframingStrategy;
+          severity: 'low' | 'medium' | 'high' | 'critical';
+        }
+
+        enum PatternType {
+          ACTIVITY_LANGUAGE = 'activity_language',
+          BINARY_GOAL = 'binary_goal',
+          VANITY_METRIC = 'vanity_metric',
+          BUSINESS_AS_USUAL = 'business_as_usual',
+          KITCHEN_SINK = 'kitchen_sink',
+          VAGUE_OUTCOME = 'vague_outcome'
+        }
+      </pattern_definitions>
+
+      <reframing_strategies>
+        interface ReframingStrategy {
+          name: string;
+          questions: string[];
+          examples: Example[];
+          successCriteria: Criteria[];
+          maxAttempts: number;
+        }
+
+        const FIVE_WHYS_STRATEGY: ReframingStrategy = {
+          name: "Five Whys Technique",
+          questions: [
+            "Why is {activity} important?",
+            "Why does {previous_answer} matter?",
+            "What value does {previous_answer} create?",
+            "How does {previous_answer} benefit the business/customers?",
+            "What changes when we achieve {previous_answer}?"
+          ],
+          maxAttempts: 5
+        };
+      </reframing_strategies>
+    </anti_pattern_detection>
+  </technical_specifications>
+
+  <validation_gates>
+    <gate name="conversation_flow_complete">
+      <criteria>
+        - Can conduct full 4-phase conversation from start to finish
+        - Each phase transitions smoothly based on user input quality
+        - Context preserved throughout entire conversation
+        - Quality scores update in real-time and influence conversation strategy
+        - Anti-pattern detection triggers appropriate reframing responses
+      </criteria>
+      <test_scenarios>
+        - Activity-focused user requiring multiple redirections
+        - Quick learner who grasps concepts immediately
+        - Metric-resistant user needing measurement assistance
+        - Conservative user requiring ambition calibration
+        - Experienced user testing system limits
+      </test_scenarios>
+    </gate>
+
+    <gate name="quality_scoring_accuracy">
+      <criteria>
+        - Objective scoring aligns with human expert evaluation (>85% agreement)
+        - Key result scoring correctly identifies outcome vs activity (>90% accuracy)
+        - Overall quality scores predict user satisfaction (>75% correlation)
+        - Real-time scoring completes within performance targets (<200ms)
+        - Score progression shows clear improvement throughout conversation
+      </criteria>
+      <test_data>
+        - 100 sample objectives (50 good, 50 poor) with expert scores
+        - 150 sample key results across quality spectrum
+        - Historical conversation data with known outcomes
+      </test_data>
+    </gate>
+
+    <gate name="anti_pattern_effectiveness">
+      <criteria>
+        - Detects >90% of known anti-patterns in test scenarios
+        - Reframing strategies improve quality scores by >20 points average
+        - Users report reframing feels natural and helpful (not robotic)
+        - Less than 10% of conversations fail to transform activity thinking
+        - Reframing attempts succeed within 3 iterations for 80% of patterns
+      </criteria>
+      <test_patterns>
+        - "Launch mobile app" → outcome-focused objective
+        - "Implement CRM system" → productivity/efficiency objective
+        - "Write documentation" → user enablement objective
+        - "Hire 10 people" → capability/capacity objective
+        - "Increase social followers" → engagement/business-impact objective
+      </test_patterns>
+    </gate>
+
+    <gate name="performance_targets">
+      <criteria>
+        - Complete conversation completes in <45 minutes average
+        - Individual response generation <3 seconds
+        - Quality scoring computation <200ms
+        - Anti-pattern detection <100ms
+        - Memory usage <500MB during conversation
+        - Database operations <50ms average
+      </criteria>
+      <load_testing>
+        - 10 concurrent conversations without degradation
+        - 1000 message conversation without memory leaks
+        - Database stress testing with 100 active sessions
+      </load_testing>
+    </gate>
+  </validation_gates>
+
+  <success_criteria>
+    <primary_success>
+      ✅ Complete conversation engine conducting 4-phase OKR creation process
+      ✅ Quality scoring system with >85% expert agreement accuracy
+      ✅ Anti-pattern detection transforming activity-based thinking to outcomes
+      ✅ Context-aware responses adapting to user patterns and preferences
+      ✅ Integration with Phase 1 infrastructure working seamlessly
+      ✅ Performance targets met for real-time conversation experience
+    </primary_success>
+
+    <conversation_quality_targets>
+      - >80% of test conversations produce OKRs scoring >75 points
+      - <10% of conversations require starting over due to system failures
+      - >90% of activity-based inputs successfully reframed to outcomes
+      - Average conversation duration 30-45 minutes
+      - User engagement sustained throughout full conversation
+    </conversation_quality_targets>
+
+    <technical_performance_targets>
+      - Response generation: <3 seconds average
+      - Quality scoring: <200ms computation time
+      - Anti-pattern detection: <100ms processing time
+      - Session state updates: <50ms database operations
+      - Memory efficiency: <500MB peak usage during conversation
+      - Error rate: <1% conversation-breaking failures
+    </technical_performance_targets>
+  </success_criteria>
+
+  <handoff_to_phase_3>
+    <deliverables_required>
+      - Fully functional conversation engine with 4-phase flow
+      - Quality scoring system with validated accuracy
+      - Anti-pattern detection with proven reframing effectiveness
+      - Context management system preserving conversation state
+      - Integration with Phase 1 infrastructure tested and stable
+      - Performance optimization meeting real-time requirements
+    </deliverables_required>
+
+    <frontend_requirements>
+      Based on Phase 2 completion, the frontend must support:
+      - Real-time conversation interface with typing indicators
+      - Quality score visualization updating in real-time
+      - Phase progress indication and transition feedback
+      - OKR display panel showing draft evolution
+      - Export functionality for completed OKRs
+      - Error handling and recovery for conversation interruptions
+    </frontend_requirements>
+
+    <api_contracts>
+      All WebSocket events and REST endpoints must be stable:
+      - send-message / receive-message event handling
+      - session state updates and recovery
+      - quality score streaming
+      - OKR export generation
+      - Error reporting and user feedback collection
+    </api_contracts>
+  </handoff_to_phase_3>
+
+  <recovery_procedures>
+    <if_scoring_accuracy_insufficient>
+      - Reduce scoring complexity, focus on activity vs outcome detection
+      - Use simpler heuristics instead of sophisticated analysis
+      - Implement manual calibration based on test data
+      - Accept lower accuracy with plan for post-launch improvement
+    </if_scoring_accuracy_insufficient>
+
+    <if_conversation_flow_complex>
+      - Implement simplified 3-phase flow (Discovery, Creation, Validation)
+      - Reduce anti-pattern detection scope to most critical patterns only
+      - Use template-based responses with variable substitution
+      - Focus on functional flow over sophisticated adaptation
+    </if_conversation_flow_complex>
+
+    <if_performance_targets_missed>
+      - Optimize database queries and reduce context storage
+      - Implement response caching for common patterns
+      - Reduce Claude API calls through smarter prompting
+      - Accept longer response times with user progress indication
+    </if_performance_targets_missed>
+
+    <rollback_criteria>
+      - Cannot achieve >60% quality scoring accuracy after optimization
+      - Conversation flow fundamentally broken with >50% failure rate
+      - Performance more than 2x target thresholds consistently
+      - Integration with Phase 1 infrastructure proves impossible
+    </rollback_criteria>
+  </recovery_procedures>
+</task>

@@ -1,0 +1,316 @@
+{
+  "description": "Detection rules for common OKR anti-patterns with regex and keyword patterns",
+  "last_updated": "2024-01-20",
+  "patterns": [
+    {
+      "id": "activity_focused",
+      "name": "Activity-Focused OKRs",
+      "description": "Objectives or key results that focus on activities/outputs rather than outcomes",
+      "severity": "high",
+      "detection": {
+        "keywords": [
+          "launch", "build", "create", "develop", "implement", "deploy", "design",
+          "hire", "train", "conduct", "organize", "plan", "establish", "set up",
+          "install", "purchase", "attend", "hold", "schedule", "arrange"
+        ],
+        "regex_patterns": [
+          "\\b(launch|build|create|develop|implement)\\s+\\d+",
+          "\\bhire\\s+\\d+\\s+(people|employees|staff)",
+          "\\bconduct\\s+\\d+\\s+(meetings|sessions|workshops)",
+          "\\battend\\s+\\d+\\s+(conferences|events)"
+        ],
+        "contextual_rules": [
+          "Contains verb + number without outcome measure",
+          "Focuses on project delivery rather than business impact",
+          "No mention of user, customer, or business benefit"
+        ]
+      },
+      "examples": {
+        "triggers": [
+          "Launch 5 new features",
+          "Hire 10 new engineers",
+          "Conduct 20 customer interviews",
+          "Build a mobile app",
+          "Implement new CRM system"
+        ],
+        "contexts": [
+          "Product development without user outcome focus",
+          "Team building without performance impact",
+          "Process improvement without efficiency measures"
+        ]
+      },
+      "confidence_factors": {
+        "high_confidence": [
+          "Multiple activity verbs without outcome measures",
+          "Numbers without corresponding result metrics",
+          "Project language rather than impact language"
+        ],
+        "medium_confidence": [
+          "Activity verbs with some outcome language",
+          "Mixed input and output metrics"
+        ],
+        "low_confidence": [
+          "Activity verbs used in outcome context",
+          "Clear business impact despite activity language"
+        ]
+      }
+    },
+    {
+      "id": "binary_thinking",
+      "name": "Binary Success Metrics",
+      "description": "Key results that are simply done/not done without graduated success measures",
+      "severity": "medium",
+      "detection": {
+        "keywords": [
+          "complete", "finish", "done", "achieve", "reach", "attain", "accomplish",
+          "deliver", "successful", "pass", "obtain", "secure", "win"
+        ],
+        "regex_patterns": [
+          "\\b(complete|finish|achieve|pass|obtain|secure|win)\\b(?!.*\\d)",
+          "\\b(successfully|completely)\\s+(complete|finish|deliver|launch)",
+          "\\b(yes|no|done|completed)\\s*$"
+        ],
+        "contextual_rules": [
+          "Binary completion without measurement scale",
+          "Success defined as simple achievement without degrees",
+          "No baseline or progressive measurement"
+        ]
+      },
+      "examples": {
+        "triggers": [
+          "Complete the project successfully",
+          "Achieve SOC 2 compliance",
+          "Finish the product launch",
+          "Pass the security audit",
+          "Win the customer deal"
+        ],
+        "contexts": [
+          "Project completion without success metrics",
+          "Compliance goals without timeline or efficiency measures",
+          "Achievement goals without graduation of success"
+        ]
+      },
+      "confidence_factors": {
+        "high_confidence": [
+          "Simple completion language without measures",
+          "No baseline, target, or timeline specified",
+          "Binary success/failure framing"
+        ],
+        "medium_confidence": [
+          "Some timeline but no graduation of success",
+          "Qualitative success measures only"
+        ],
+        "low_confidence": [
+          "Completion combined with measurement",
+          "Clear success criteria beyond binary"
+        ]
+      }
+    },
+    {
+      "id": "vanity_metrics",
+      "name": "Vanity Metrics Focus",
+      "description": "Key results focused on metrics that don't drive business value",
+      "severity": "high",
+      "detection": {
+        "keywords": [
+          "followers", "likes", "shares", "views", "impressions", "downloads",
+          "registrations", "signups", "visits", "pageviews", "sessions",
+          "subscribers", "connections", "mentions", "reach", "awareness"
+        ],
+        "regex_patterns": [
+          "\\b(increase|grow|achieve)\\s+\\d+[km]?\\s+(followers|likes|shares|views)",
+          "\\bget\\s+\\d+[km]?\\s+(downloads|signups|visits)",
+          "\\breach\\s+\\d+[km]?\\s+(people|users|customers)"
+        ],
+        "contextual_rules": [
+          "High numbers without conversion or value metrics",
+          "Awareness metrics without behavior change measures",
+          "Engagement metrics without business outcome connection"
+        ]
+      },
+      "examples": {
+        "triggers": [
+          "Get 10K social media followers",
+          "Achieve 1M website pageviews",
+          "Reach 100K email subscribers",
+          "Generate 50K app downloads",
+          "Increase brand awareness to 25%"
+        ],
+        "contexts": [
+          "Marketing goals without conversion focus",
+          "Growth metrics without revenue connection",
+          "Awareness campaigns without action metrics"
+        ]
+      },
+      "confidence_factors": {
+        "high_confidence": [
+          "Pure vanity metrics without conversion measures",
+          "Large numbers without value connection",
+          "Awareness focus without behavior change"
+        ],
+        "medium_confidence": [
+          "Mixed vanity and value metrics",
+          "Some connection to business outcomes"
+        ],
+        "low_confidence": [
+          "Vanity metrics paired with strong business metrics",
+          "Clear path from awareness to value"
+        ]
+      }
+    },
+    {
+      "id": "business_as_usual",
+      "name": "Business as Usual",
+      "description": "Objectives that represent normal operations rather than ambitious outcomes",
+      "severity": "medium",
+      "detection": {
+        "keywords": [
+          "maintain", "continue", "sustain", "keep", "preserve", "uphold",
+          "support", "assist", "help", "provide", "ensure", "monitor",
+          "manage", "oversee", "coordinate", "facilitate"
+        ],
+        "regex_patterns": [
+          "\\b(maintain|continue|sustain|keep)\\s+\\w+\\s+(level|rate|quality)",
+          "\\bensure\\s+\\w+\\s+(continues|remains|stays)",
+          "\\bprovide\\s+(support|assistance|help)"
+        ],
+        "contextual_rules": [
+          "Maintenance language without improvement",
+          "Status quo preservation without growth",
+          "Operational tasks without strategic advancement"
+        ]
+      },
+      "examples": {
+        "triggers": [
+          "Maintain current customer satisfaction levels",
+          "Continue providing excellent support",
+          "Ensure system uptime remains stable",
+          "Keep team morale high",
+          "Support ongoing operations"
+        ],
+        "contexts": [
+          "Operational maintenance without improvement",
+          "Status quo objectives in growth contexts",
+          "Support functions without strategic contribution"
+        ]
+      },
+      "confidence_factors": {
+        "high_confidence": [
+          "Pure maintenance without improvement",
+          "Status quo language in strategic context",
+          "No stretch or growth implied"
+        ],
+        "medium_confidence": [
+          "Maintenance with some efficiency improvement",
+          "Operational excellence focus"
+        ],
+        "low_confidence": [
+          "Maintenance of high performance standards",
+          "Stability in context of major change"
+        ]
+      }
+    },
+    {
+      "id": "kitchen_sink",
+      "name": "Kitchen Sink Objectives",
+      "description": "Objectives that try to accomplish too many different things",
+      "severity": "medium",
+      "detection": {
+        "keywords": [
+          "and", "while", "also", "additionally", "furthermore", "moreover",
+          "plus", "along with", "as well as", "both", "multiple", "various"
+        ],
+        "regex_patterns": [
+          "\\w+\\s+and\\s+\\w+\\s+and\\s+\\w+",
+          "\\b(improve|increase|enhance)\\s+\\w+\\s+and\\s+\\w+\\s+and",
+          "\\b(both|multiple|various)\\s+\\w+\\s+(and|while|plus)"
+        ],
+        "contextual_rules": [
+          "Multiple unrelated outcomes in single objective",
+          "More than 3 different focus areas combined",
+          "Lack of coherent theme connecting elements"
+        ]
+      },
+      "examples": {
+        "triggers": [
+          "Improve customer satisfaction and increase sales and reduce costs",
+          "Build better product and hire more people and improve processes",
+          "Grow revenue while reducing churn and expanding internationally",
+          "Enhance user experience and optimize performance and increase security"
+        ],
+        "contexts": [
+          "Leadership trying to cover all priorities",
+          "Lack of focus and prioritization",
+          "Multiple stakeholder demands combined"
+        ]
+      },
+      "confidence_factors": {
+        "high_confidence": [
+          "3+ unrelated outcomes in single objective",
+          "Multiple 'and' connectors without coherent theme",
+          "Different business areas combined without strategy"
+        ],
+        "medium_confidence": [
+          "2 related but distinct outcomes",
+          "Some thematic connection between elements"
+        ],
+        "low_confidence": [
+          "Multiple elements with clear strategic connection",
+          "Complementary outcomes supporting unified goal"
+        ]
+      }
+    },
+    {
+      "id": "vague_outcome",
+      "name": "Vague Outcome Definition",
+      "description": "Objectives or key results that lack specific, measurable outcomes",
+      "severity": "high",
+      "detection": {
+        "keywords": [
+          "better", "improve", "enhance", "optimize", "increase", "reduce",
+          "good", "great", "excellent", "quality", "efficiency", "performance",
+          "more", "less", "higher", "lower", "stronger", "faster"
+        ],
+        "regex_patterns": [
+          "\\b(improve|enhance|optimize|increase)\\s+\\w+(?!.*\\d|.*%|.*by|.*from|.*to)",
+          "\\bmake\\s+\\w+\\s+(better|good|great|excellent)",
+          "\\b(more|less|higher|lower)\\s+\\w+(?!.*\\d|.*%|.*than)"
+        ],
+        "contextual_rules": [
+          "Improvement language without specific measures",
+          "Comparative terms without baselines or targets",
+          "Quality language without definition"
+        ]
+      },
+      "examples": {
+        "triggers": [
+          "Improve customer experience",
+          "Increase team productivity",
+          "Enhance product quality",
+          "Make better decisions",
+          "Optimize system performance"
+        ],
+        "contexts": [
+          "Strategic objectives without operational definition",
+          "Improvement goals without measurement",
+          "Quality initiatives without success criteria"
+        ]
+      },
+      "confidence_factors": {
+        "high_confidence": [
+          "Improvement language with no specifics",
+          "No baseline, target, or measurement mentioned",
+          "Purely qualitative without quantitative anchor"
+        ],
+        "medium_confidence": [
+          "Some specificity but missing key measurements",
+          "Qualitative with implied quantitative outcomes"
+        ],
+        "low_confidence": [
+          "Qualitative language with clear measurement intent",
+          "Context provides measurement framework"
+        ]
+      }
+    }
+  ]
+}

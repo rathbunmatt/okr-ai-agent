@@ -1,0 +1,151 @@
+groups:
+  - name: okr-alerts
+    rules:
+      # High-level system alerts
+      - alert: SystemHighMemoryUsage
+        expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 > 85
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High memory usage on {{ $labels.instance }}"
+          description: "Memory usage is above 85% on {{ $labels.instance }} for more than 2 minutes."
+
+      - alert: SystemHighCPUUsage
+        expr: 100 - (avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 80
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage on {{ $labels.instance }}"
+          description: "CPU usage is above 80% on {{ $labels.instance }} for more than 5 minutes."
+
+      - alert: SystemDiskSpaceLow
+        expr: (1 - (node_filesystem_avail_bytes{fstype!="tmpfs"} / node_filesystem_size_bytes{fstype!="tmpfs"})) * 100 > 85
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Disk space low on {{ $labels.instance }}"
+          description: "Disk space usage is above 85% on filesystem {{ $labels.mountpoint }} at {{ $labels.instance }}."
+
+      # Application-specific alerts
+      - alert: OKRServerDown
+        expr: up{job="okr-server"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "OKR Server is down"
+          description: "OKR Server has been down for more than 1 minute."
+
+      - alert: OKRServerHighLatency
+        expr: histogram_quantile(0.95, rate(http_request_duration_seconds_bucket{job="okr-server"}[5m])) > 2
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "OKR Server high latency"
+          description: "95th percentile latency is above 2 seconds for more than 5 minutes."
+
+      - alert: OKRServerHighErrorRate
+        expr: rate(http_requests_total{job="okr-server",status=~"5.."}[5m]) / rate(http_requests_total{job="okr-server"}[5m]) > 0.05
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "OKR Server high error rate"
+          description: "Error rate is above 5% for more than 2 minutes."
+
+      - alert: DatabaseConnectionFailures
+        expr: increase(db_connection_errors_total[5m]) > 10
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Database connection failures"
+          description: "More than 10 database connection failures in the last 5 minutes."
+
+      # Infrastructure alerts
+      - alert: NginxDown
+        expr: up{job="nginx"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Nginx is down"
+          description: "Nginx has been down for more than 1 minute."
+
+      - alert: PostgreSQLDown
+        expr: up{job="postgres"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "PostgreSQL is down"
+          description: "PostgreSQL has been down for more than 1 minute."
+
+      - alert: RedisDown
+        expr: up{job="redis"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Redis is down"
+          description: "Redis has been down for more than 1 minute."
+
+      - alert: PostgreSQLTooManyConnections
+        expr: pg_stat_activity_count > 80
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "PostgreSQL too many connections"
+          description: "PostgreSQL has {{ $value }} connections, which is close to the limit."
+
+      - alert: RedisMemoryUsageHigh
+        expr: redis_memory_used_bytes / redis_memory_max_bytes > 0.9
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Redis memory usage high"
+          description: "Redis memory usage is above 90% for more than 5 minutes."
+
+      # Security alerts
+      - alert: TooManyFailedLogins
+        expr: increase(failed_login_attempts_total[5m]) > 20
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Too many failed login attempts"
+          description: "More than 20 failed login attempts in the last 5 minutes."
+
+      - alert: SuspiciousUserActivity
+        expr: increase(suspicious_activity_total[10m]) > 5
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Suspicious user activity detected"
+          description: "More than 5 suspicious activities detected in the last 10 minutes."
+
+      # Business metrics alerts
+      - alert: LowUserEngagement
+        expr: avg_over_time(active_users_count[1h]) < 10
+        for: 30m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Low user engagement"
+          description: "Average active users over the last hour is below 10."
+
+      - alert: HighConversationFailureRate
+        expr: rate(conversation_failures_total[10m]) / rate(conversation_attempts_total[10m]) > 0.1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High conversation failure rate"
+          description: "Conversation failure rate is above 10% for more than 5 minutes."

@@ -1,0 +1,164 @@
+# Artillery Load Testing Configuration
+# Tests system performance under realistic load conditions
+
+config:
+  target: 'http://localhost:3000'
+  phases:
+    # Warm up phase
+    - duration: 60
+      arrivalRate: 5
+      name: "Warm up"
+
+    # Gradual ramp up
+    - duration: 300
+      arrivalRate: 5
+      rampTo: 50
+      name: "Ramp up load"
+
+    # Sustained load testing
+    - duration: 600
+      arrivalRate: 50
+      name: "Sustained load"
+
+    # Spike testing
+    - duration: 120
+      arrivalRate: 50
+      rampTo: 100
+      name: "Spike test"
+
+    # Cool down
+    - duration: 60
+      arrivalRate: 100
+      rampTo: 10
+      name: "Cool down"
+
+  processor: "./performance-tests/scenarios.js"
+
+  defaults:
+    headers:
+      'Content-Type': 'application/json'
+      'Accept': 'application/json'
+
+scenarios:
+  # Realistic user session flow
+  - name: "Complete OKR Creation Flow"
+    weight: 60
+    flow:
+      - post:
+          url: "/api/sessions"
+          json:
+            userId: "load-test-user-{{ $randomString() }}"
+            context:
+              industry: "{{ $pickRandom('technology', 'healthcare', 'retail', 'finance') }}"
+              function: "{{ $pickRandom('product', 'marketing', 'operations', 'engineering') }}"
+              timeframe: "{{ $pickRandom('quarterly', 'annual') }}"
+          capture:
+            - json: "$.sessionId"
+              as: "sessionId"
+          expect:
+            - statusCode: 200
+            - contentType: json
+            - hasProperty: "sessionId"
+
+      - think: 2  # User thinking time
+
+      - post:
+          url: "/api/sessions/{{ sessionId }}/messages/contextual"
+          json:
+            message: "{{ $randomActivityBasedObjective() }}"
+          expect:
+            - statusCode: 200
+            - hasProperty: "response"
+
+      - think: 5
+
+      - post:
+          url: "/api/sessions/{{ sessionId }}/messages/contextual"
+          json:
+            message: "{{ $randomImprovedObjective() }}"
+          expect:
+            - statusCode: 200
+
+      - think: 3
+
+      - post:
+          url: "/api/sessions/{{ sessionId }}/messages/contextual"
+          json:
+            message: "{{ $randomKeyResults() }}"
+          expect:
+            - statusCode: 200
+
+      - get:
+          url: "/api/sessions/{{ sessionId }}/okrs"
+          expect:
+            - statusCode: 200
+
+  # Quick message testing
+  - name: "Rapid Message Exchange"
+    weight: 30
+    flow:
+      - post:
+          url: "/api/sessions"
+          json:
+            userId: "rapid-user-{{ $randomString() }}"
+            context:
+              industry: "technology"
+              function: "product"
+              timeframe: "quarterly"
+          capture:
+            - json: "$.sessionId"
+              as: "sessionId"
+
+      - loop:
+          - post:
+              url: "/api/sessions/{{ sessionId }}/messages/contextual"
+              json:
+                message: "{{ $randomMessage() }}"
+              expect:
+                - statusCode: 200
+          - think: 1
+        count: 5
+
+  # Session management testing
+  - name: "Session Operations"
+    weight: 10
+    flow:
+      - post:
+          url: "/api/sessions"
+          json:
+            userId: "session-ops-user-{{ $randomString() }}"
+            context:
+              industry: "healthcare"
+              function: "operations"
+              timeframe: "annual"
+          capture:
+            - json: "$.sessionId"
+              as: "sessionId"
+
+      - get:
+          url: "/api/sessions/{{ sessionId }}"
+          expect:
+            - statusCode: 200
+
+      - post:
+          url: "/api/sessions/{{ sessionId }}/restore"
+          expect:
+            - statusCode: 200
+
+      - get:
+          url: "/api/sessions/{{ sessionId }}/analytics"
+          expect:
+            - statusCode: 200
+
+# Performance thresholds and SLAs
+expect:
+  # Response time requirements
+  p95: 3000  # 95th percentile under 3 seconds
+  p99: 5000  # 99th percentile under 5 seconds
+  median: 1000  # Median under 1 second
+
+  # Error rate requirements
+  maxErrorRate: 1  # Less than 1% error rate
+
+  # Memory usage requirements
+  maxMemoryUsage: 500  # Less than 500MB peak memory

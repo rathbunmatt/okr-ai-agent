@@ -1,0 +1,302 @@
+{
+  "function": "product_engineering",
+  "description": "OKR examples for product management and software development teams",
+  "last_updated": "2024-01-20",
+  "examples": [
+    {
+      "id": "product-1",
+      "category": "function",
+      "context": {
+        "industry": ["technology", "saas"],
+        "function": ["product"],
+        "company_size": "scale",
+        "situation": "increasing user engagement and feature adoption"
+      },
+      "poor_version": {
+        "objective": "Build better features",
+        "key_results": [
+          "Ship 3 major features",
+          "Get user feedback",
+          "Improve product metrics"
+        ],
+        "problems": [
+          "Output-focused rather than outcome-focused",
+          "No specific user value defined",
+          "Vague metrics without targets",
+          "Missing connection to business goals"
+        ],
+        "quality_score": 25
+      },
+      "good_version": {
+        "objective": "Increase user engagement through high-value feature adoption",
+        "key_results": [
+          "Achieve 65% adoption rate for new collaborative editing feature within 60 days",
+          "Increase daily active user session duration from 12 to 18 minutes",
+          "Improve feature discovery rate from 23% to 40% through enhanced onboarding"
+        ],
+        "improvements": [
+          "Specific features with measurable adoption targets",
+          "User behavior metrics tied to engagement",
+          "Onboarding optimization with clear success metrics"
+        ],
+        "quality_score": 89
+      },
+      "explanation": {
+        "transformation_rationale": "Product success is measured by user adoption and engagement, not feature delivery. The focus shifts from shipping to user value creation.",
+        "key_insights": [
+          "Feature adoption rates indicate product-market fit",
+          "Session duration reflects user value and stickiness",
+          "Feature discovery drives overall product utilization"
+        ],
+        "implementation_tips": [
+          "Implement feature flagging for gradual rollouts",
+          "Use analytics to track feature usage patterns",
+          "Create in-app guides for feature discovery"
+        ]
+      },
+      "metadata": {
+        "source": "Product management best practices",
+        "expert_validated": true,
+        "usage_count": 52,
+        "effectiveness_score": 0.87,
+        "last_updated": "2024-01-20"
+      }
+    },
+    {
+      "id": "eng-1",
+      "category": "function",
+      "context": {
+        "industry": ["technology"],
+        "function": ["engineering"],
+        "company_size": "scale",
+        "situation": "improving system reliability and performance"
+      },
+      "poor_version": {
+        "objective": "Make the system more reliable",
+        "key_results": [
+          "Fix all critical bugs",
+          "Implement monitoring",
+          "Optimize database queries"
+        ],
+        "problems": [
+          "Vague reliability definition",
+          "Activity-based rather than outcome-based",
+          "No measurable targets",
+          "Missing user impact"
+        ],
+        "quality_score": 27
+      },
+      "good_version": {
+        "objective": "Achieve enterprise-grade reliability that supports business growth",
+        "key_results": [
+          "Maintain 99.9% uptime with <5 minutes total downtime per month",
+          "Reduce P95 API response time from 800ms to 200ms",
+          "Achieve zero data loss incidents and <1 hour recovery time for outages"
+        ],
+        "improvements": [
+          "Specific uptime and performance targets",
+          "Customer-impacting metrics clearly defined",
+          "Recovery and data protection guarantees"
+        ],
+        "quality_score": 91
+      },
+      "explanation": {
+        "transformation_rationale": "Engineering reliability must be measured by customer experience and business continuity. SLA-grade metrics demonstrate professional-grade infrastructure.",
+        "key_insights": [
+          "99.9% uptime allows only 43 minutes downtime per month",
+          "P95 response time captures real user experience better than averages",
+          "Recovery time objectives are critical for business continuity"
+        ],
+        "implementation_tips": [
+          "Implement comprehensive alerting before incidents occur",
+          "Use chaos engineering to test recovery procedures",
+          "Track both internal metrics and customer-reported issues"
+        ]
+      },
+      "metadata": {
+        "source": "Site reliability engineering practices",
+        "expert_validated": true,
+        "usage_count": 41,
+        "effectiveness_score": 0.90,
+        "last_updated": "2024-01-20"
+      }
+    },
+    {
+      "id": "product-2",
+      "category": "function",
+      "context": {
+        "industry": ["any"],
+        "function": ["product", "design"],
+        "company_size": "startup",
+        "situation": "validating product-market fit for new feature"
+      },
+      "poor_version": {
+        "objective": "Validate our new feature idea",
+        "key_results": [
+          "Build MVP and launch",
+          "Get user feedback",
+          "Iterate based on learnings"
+        ],
+        "problems": [
+          "No specific validation criteria",
+          "Process-focused rather than outcome-focused",
+          "Missing measurable success metrics",
+          "Vague feedback collection"
+        ],
+        "quality_score": 26
+      },
+      "good_version": {
+        "objective": "Validate product-market fit for AI-powered content recommendations",
+        "key_results": [
+          "Achieve 40%+ click-through rate on AI recommendations (vs 12% baseline)",
+          "Gain 100+ active beta users with 70%+ weekly retention after 4 weeks",
+          "Generate $25K+ in pre-sales commitments from beta users"
+        ],
+        "improvements": [
+          "Specific feature with clear success criteria",
+          "Measurable user engagement metrics",
+          "Revenue validation through pre-sales"
+        ],
+        "quality_score": 88
+      },
+      "explanation": {
+        "transformation_rationale": "Product-market fit validation requires both usage and willingness-to-pay signals. Beta user behavior and pre-sales provide strong validation signals.",
+        "key_insights": [
+          "Click-through rates indicate user value perception",
+          "Weekly retention shows sustained usage patterns",
+          "Pre-sales commitments validate willingness to pay"
+        ],
+        "implementation_tips": [
+          "Set up detailed analytics before beta launch",
+          "Interview beta users weekly for qualitative feedback",
+          "Create simple pre-sales landing page for validation"
+        ]
+      },
+      "metadata": {
+        "source": "Startup product validation framework",
+        "expert_validated": true,
+        "usage_count": 34,
+        "effectiveness_score": 0.86,
+        "last_updated": "2024-01-20"
+      }
+    },
+    {
+      "id": "eng-2",
+      "category": "function",
+      "context": {
+        "industry": ["technology"],
+        "function": ["engineering", "devops"],
+        "company_size": "enterprise",
+        "situation": "modernizing development practices and deployment pipeline"
+      },
+      "poor_version": {
+        "objective": "Improve our development process",
+        "key_results": [
+          "Implement CI/CD pipeline",
+          "Adopt containerization",
+          "Increase test coverage"
+        ],
+        "problems": [
+          "Process improvement without outcome focus",
+          "No measurement of developer productivity",
+          "Missing business impact metrics",
+          "Implementation-focused rather than result-focused"
+        ],
+        "quality_score": 29
+      },
+      "good_version": {
+        "objective": "Accelerate feature delivery while maintaining quality through modern development practices",
+        "key_results": [
+          "Reduce deployment frequency from weekly to daily with <2% rollback rate",
+          "Decrease lead time from feature request to production from 3 weeks to 5 days",
+          "Achieve 90%+ automated test coverage with <10 minute test suite execution"
+        ],
+        "improvements": [
+          "Developer velocity metrics with quality gates",
+          "Lead time measurement shows business agility",
+          "Test automation with performance requirements"
+        ],
+        "quality_score": 90
+      },
+      "explanation": {
+        "transformation_rationale": "Development process improvements should accelerate business outcomes while maintaining quality. DORA metrics provide industry-standard measurement.",
+        "key_insights": [
+          "Daily deployments with low rollback rates indicate mature practices",
+          "Lead time reduction directly impacts business agility",
+          "Fast, reliable test suites enable confident deployments"
+        ],
+        "implementation_tips": [
+          "Implement feature flags for safe daily deployments",
+          "Track DORA metrics: deployment frequency, lead time, MTTR, change failure rate",
+          "Invest in test infrastructure for fast feedback loops"
+        ]
+      },
+      "metadata": {
+        "source": "DORA State of DevOps research",
+        "expert_validated": true,
+        "usage_count": 47,
+        "effectiveness_score": 0.89,
+        "last_updated": "2024-01-20"
+      }
+    },
+    {
+      "id": "product-3",
+      "category": "function",
+      "context": {
+        "industry": ["any"],
+        "function": ["product", "analytics"],
+        "company_size": "scale",
+        "situation": "optimizing user conversion funnel"
+      },
+      "poor_version": {
+        "objective": "Optimize the conversion funnel",
+        "key_results": [
+          "A/B test landing pages",
+          "Improve checkout flow",
+          "Reduce drop-off rates"
+        ],
+        "problems": [
+          "No specific conversion targets",
+          "Activity-based rather than outcome-based",
+          "Missing baseline and target metrics",
+          "Vague improvement areas"
+        ],
+        "quality_score": 28
+      },
+      "good_version": {
+        "objective": "Maximize conversion revenue through systematic funnel optimization",
+        "key_results": [
+          "Increase overall conversion rate from 3.2% to 5.5% across all traffic sources",
+          "Reduce cart abandonment rate from 68% to 45% through checkout optimization",
+          "Improve mobile conversion rate from 1.8% to 3.8% (matching desktop performance)"
+        ],
+        "improvements": [
+          "Specific conversion rate targets with baselines",
+          "Focus on highest-impact funnel stages",
+          "Mobile-desktop parity as strategic goal"
+        ],
+        "quality_score": 89
+      },
+      "explanation": {
+        "transformation_rationale": "Conversion optimization should focus on revenue impact through systematic improvement of highest-leverage funnel steps. Mobile-desktop parity is increasingly critical.",
+        "key_insights": [
+          "Small conversion rate improvements compound to significant revenue gains",
+          "Cart abandonment is often the highest-leverage optimization point",
+          "Mobile conversion gaps represent major revenue opportunities"
+        ],
+        "implementation_tips": [
+          "Use heat mapping and session recording to identify friction points",
+          "Test mobile-first designs for checkout flows",
+          "Track micro-conversions throughout the funnel"
+        ]
+      },
+      "metadata": {
+        "source": "Conversion optimization case studies",
+        "expert_validated": true,
+        "usage_count": 39,
+        "effectiveness_score": 0.88,
+        "last_updated": "2024-01-20"
+      }
+    }
+  ]
+}

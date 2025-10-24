@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "last_updated": "2024-01-15",
+    "description": "Regex patterns and keyword rules for detecting OKR anti-patterns"
+  },
+  "detection_config": {
+    "confidence_thresholds": {
+      "high": 0.8,
+      "medium": 0.6,
+      "low": 0.4
+    },
+    "max_suggestions": 3,
+    "context_window": 100
+  },
+  "pattern_rules": {
+    "activity_based": {
+      "weight": 0.9,
+      "keywords": {
+        "high_confidence": ["build", "create", "implement", "launch", "deploy", "develop", "establish", "set up"],
+        "medium_confidence": ["install", "configure", "setup", "rollout", "execute"]
+      },
+      "regex_patterns": [
+        {
+          "pattern": "^(Build|Create|Implement|Launch|Deploy|Develop|Establish|Set up)\\s+",
+          "confidence": 0.85
+        },
+        {
+          "pattern": "\\b(system|platform|process|tool|feature|product)\\b(?!.*\\b(for|to)\\s+(improve|enhance|increase|reduce|achieve))",
+          "confidence": 0.7
+        }
+      ],
+      "exclusions": [
+        "\\b(to improve|to enhance|to achieve|for customers|for users)\\b"
+      ]
+    },
+    "unmeasurable": {
+      "weight": 0.95,
+      "keywords": {
+        "high_confidence": ["improve", "enhance", "better", "optimize"],
+        "medium_confidence": ["more", "less", "higher", "lower", "faster", "slower"]
+      },
+      "regex_patterns": [
+        {
+          "pattern": "\\b(improve|enhance|better|increase|reduce|optimize)\\b(?!.*\\b\\d+)",
+          "confidence": 0.9
+        },
+        {
+          "pattern": "\\b(significantly|substantially|greatly|dramatically)\\b",
+          "confidence": 0.8
+        }
+      ]
+    },
+    "business_as_usual": {
+      "weight": 0.7,
+      "keywords": {
+        "high_confidence": ["maintain", "continue", "keep", "sustain", "ensure"],
+        "medium_confidence": ["monitor", "track", "observe"]
+      },
+      "regex_patterns": [
+        {
+          "pattern": "^(Maintain|Continue|Keep|Sustain|Ensure|Monitor)\\s+",
+          "confidence": 0.8
+        },
+        {
+          "pattern": "\\b(current level|existing|status quo|as usual)\\b",
+          "confidence": 0.75
+        }
+      ]
+    },
+    "too_many_krs": {
+      "weight": 0.6,
+      "count_based": true,
+      "thresholds": {
+        "warning": 5,
+        "critical": 7
+      }
+    },
+    "sandbagging": {
+      "weight": 0.8,
+      "keywords": {
+        "high_confidence": ["at least", "minimum", "no less than"],
+        "medium_confidence": ["ensure", "maintain above"]
+      },
+      "regex_patterns": [
+        {
+          "pattern": "\\b(at least|minimum|no less than)\\b.*\\d+",
+          "confidence": 0.8
+        },
+        {
+          "pattern": "\\b(slight|small|minor|modest)\\b.*\\b(increase|improvement|growth)\\b",
+          "confidence": 0.7
+        }
+      ]
+    }
+  },
+  "context_analysis": {
+    "industry_modifiers": {
+      "healthcare": {
+        "compliance_exceptions": ["ensure", "maintain", "comply"],
+        "outcome_keywords": ["patient", "safety", "quality", "care"]
+      },
+      "financial_services": {
+        "compliance_exceptions": ["maintain", "ensure", "comply", "regulate"],
+        "outcome_keywords": ["customer", "satisfaction", "trust", "service"]
+      },
+      "technology": {
+        "outcome_keywords": ["user", "customer", "adoption", "engagement", "performance"]
+      }
+    },
+    "function_modifiers": {
+      "operations": {
+        "acceptable_maintenance": ["uptime", "reliability", "compliance"],
+        "outcome_keywords": ["efficiency", "quality", "speed", "cost"]
+      },
+      "security": {
+        "acceptable_maintenance": ["compliance", "monitoring", "scanning"],
+        "outcome_keywords": ["risk", "incidents", "breaches", "trust"]
+      }
+    }
+  }
+}

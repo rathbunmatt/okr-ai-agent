@@ -1,0 +1,595 @@
+{
+  "timestamp": "2025-10-03T22:09:29.588Z",
+  "scenarios": [
+    {
+      "scenario": "Discovery Phase - Simple",
+      "totalTime": 13787,
+      "messageCount": 3,
+      "avgTimePerMessage": 4595.666666666667,
+      "topOperations": [
+        {
+          "name": "conversation_processing_total",
+          "totalTime": 13786.267334,
+          "count": 3,
+          "avg": 4595.422444666667
+        },
+        {
+          "name": "step_7_claude_api_call",
+          "totalTime": 13748.334040999998,
+          "count": 3,
+          "avg": 4582.778013666666
+        },
+        {
+          "name": "step_7_5_knowledge_suggestions",
+          "totalTime": 9.143290999999408,
+          "count": 3,
+          "avg": 3.0477636666664694
+        },
+        {
+          "name": "step_1_load_session",
+          "totalTime": 0.6292930000006436,
+          "count": 3,
+          "avg": 0.20976433333354785
+        },
+        {
+          "name": "step_2_load_messages",
+          "totalTime": 0.2797079999984362,
+          "count": 3,
+          "avg": 0.09323599999947874
+        }
+      ],
+      "slowestOperations": [
+        {
+          "name": "conversation_processing_total",
+          "avg": 4595.422444666667,
+          "count": 3
+        },
+        {
+          "name": "step_7_claude_api_call",
+          "avg": 4582.778013666666,
+          "count": 3
+        },
+        {
+          "name": "step_7_5_knowledge_suggestions",
+          "avg": 3.0477636666664694,
+          "count": 3
+        },
+        {
+          "name": "step_1_load_session",
+          "avg": 0.20976433333354785,
+          "count": 3
+        },
+        {
+          "name": "step_2_load_messages",
+          "avg": 0.09323599999947874,
+          "count": 3
+        }
+      ],
+      "memoryDelta": -11.703781127929688
+    },
+    {
+      "scenario": "Discovery Phase - Complex",
+      "totalTime": 18398,
+      "messageCount": 4,
+      "avgTimePerMessage": 4599.5,
+      "topOperations": [
+        {
+          "name": "conversation_processing_total",
+          "totalTime": 18397.241209,
+          "count": 4,
+          "avg": 4599.31030225
+        },
+        {
+          "name": "step_7_claude_api_call",
+          "totalTime": 18368.313416000005,
+          "count": 4,
+          "avg": 4592.078354000001
+        },
+        {
+          "name": "step_7_5_knowledge_suggestions",
+          "totalTime": 3.980415999998513,
+          "count": 4,
+          "avg": 0.9951039999996283
+        },
+        {
+          "name": "step_1_load_session",
+          "totalTime": 0.5842089999969176,
+          "count": 4,
+          "avg": 0.1460522499992294
+        },
+        {
+          "name": "step_2_load_messages",
+          "totalTime": 0.4004170000025624,
+          "count": 4,
+          "avg": 0.1001042500006406
+        }
+      ],
+      "slowestOperations": [
+        {
+          "name": "conversation_processing_total",
+          "avg": 4599.31030225,
+          "count": 4
+        },
+        {
+          "name": "step_7_claude_api_call",
+          "avg": 4592.078354000001,
+          "count": 4
+        },
+        {
+          "name": "step_7_5_knowledge_suggestions",
+          "avg": 0.9951039999996283,
+          "count": 4
+        },
+        {
+          "name": "step_1_load_session",
+          "avg": 0.1460522499992294,
+          "count": 4
+        },
+        {
+          "name": "step_2_load_messages",
+          "avg": 0.1001042500006406,
+          "count": 4
+        }
+      ],
+      "memoryDelta": 0.9194107055664062
+    },
+    {
+      "scenario": "Exploration Phase",
+      "totalTime": 25824,
+      "messageCount": 5,
+      "avgTimePerMessage": 5164.8,
+      "topOperations": [
+        {
+          "name": "conversation_processing_total",
+          "totalTime": 25822.842209000002,
+          "count": 5,
+          "avg": 5164.5684418
+        },
+        {
+          "name": "step_7_claude_api_call",
+          "totalTime": 25789.213959,
+          "count": 5,
+          "avg": 5157.8427918
+        },
+        {
+          "name": "step_7_5_knowledge_suggestions",
+          "totalTime": 3.9182089999958407,
+          "count": 5,
+          "avg": 0.7836417999991682
+        },
+        {
+          "name": "step_1_load_session",
+          "totalTime": 0.8226250000006985,
+          "count": 5,
+          "avg": 0.1645250000001397
+        },
+        {
+          "name": "step_2_load_messages",
+          "totalTime": 0.651040999997349,
+          "count": 5,
+          "avg": 0.1302081999994698
+        }
+      ],
+      "slowestOperations": [
+        {
+          "name": "conversation_processing_total",
+          "avg": 5164.5684418,
+          "count": 5
+        },
+        {
+          "name": "step_7_claude_api_call",
+          "avg": 5157.8427918,
+          "count": 5
+        },
+        {
+          "name": "step_7_5_knowledge_suggestions",
+          "avg": 0.7836417999991682,
+          "count": 5
+        },
+        {
+          "name": "step_1_load_session",
+          "avg": 0.1645250000001397,
+          "count": 5
+        },
+        {
+          "name": "step_2_load_messages",
+          "avg": 0.1302081999994698,
+          "count": 5
+        }
+      ],
+      "memoryDelta": 0.669891357421875
+    },
+    {
+      "scenario": "Refinement Phase",
+      "totalTime": 28421,
+      "messageCount": 7,
+      "avgTimePerMessage": 4060.1428571428573,
+      "topOperations": [
+        {
+          "name": "conversation_processing_total",
+          "totalTime": 28420.211416999977,
+          "count": 7,
+          "avg": 4060.030202428568
+        },
+        {
+          "name": "step_7_claude_api_call",
+          "totalTime": 28372.099582999996,
+          "count": 7,
+          "avg": 4053.1570832857137
+        },
+        {
+          "name": "step_7_5_knowledge_suggestions",
+          "totalTime": 3.8415409999797703,
+          "count": 7,
+          "avg": 0.5487915714256815
+        },
+        {
+          "name": "step_1_load_session",
+          "totalTime": 1.3249999999898137,
+          "count": 7,
+          "avg": 0.18928571428425908
+        },
+        {
+          "name": "step_2_load_messages",
+          "totalTime": 0.7659179999973276,
+          "count": 7,
+          "avg": 0.10941685714247537
+        }
+      ],
+      "slowestOperations": [
+        {
+          "name": "conversation_processing_total",
+          "avg": 4060.030202428568,
+          "count": 7
+        },
+        {
+          "name": "step_7_claude_api_call",
+          "avg": 4053.1570832857137,
+          "count": 7
+        },
+        {
+          "name": "step_7_5_knowledge_suggestions",
+          "avg": 0.5487915714256815,
+          "count": 7
+        },
+        {
+          "name": "step_1_load_session",
+          "avg": 0.18928571428425908,
+          "count": 7
+        },
+        {
+          "name": "step_2_load_messages",
+          "avg": 0.10941685714247537,
+          "count": 7
+        }
+      ],
+      "memoryDelta": 0.8347549438476562
+    },
+    {
+      "scenario": "Quality Assessment - Good OKR",
+      "totalTime": 30283,
+      "messageCount": 7,
+      "avgTimePerMessage": 4326.142857142857,
+      "topOperations": [
+        {
+          "name": "conversation_processing_total",
+          "totalTime": 30281.89512499998,
+          "count": 7,
+          "avg": 4325.9850178571405
+        },
+        {
+          "name": "step_7_claude_api_call",
+          "totalTime": 30218.450915999987,
+          "count": 7,
+          "avg": 4316.92155942857
+        },
+        {
+          "name": "step_7_5_knowledge_suggestions",
+          "totalTime": 6.869165999989491,
+          "count": 7,
+          "avg": 0.9813094285699273
+        },
+        {
+          "name": "step_2_load_messages",
+          "totalTime": 2.686332000012044,
+          "count": 7,
+          "avg": 0.38376171428743483
+        },
+        {
+          "name": "step_1_load_session",
+          "totalTime": 1.4571649999852525,
+          "count": 7,
+          "avg": 0.2081664285693218
+        }
+      ],
+      "slowestOperations": [
+        {
+          "name": "conversation_processing_total",
+          "avg": 4325.9850178571405,
+          "count": 7
+        },
+        {
+          "name": "step_7_claude_api_call",
+          "avg": 4316.92155942857,
+          "count": 7
+        },
+        {
+          "name": "step_7_5_knowledge_suggestions",
+          "avg": 0.9813094285699273,
+          "count": 7
+        },
+        {
+          "name": "step_2_load_messages",
+          "avg": 0.38376171428743483,
+          "count": 7
+        },
+        {
+          "name": "step_1_load_session",
+          "avg": 0.2081664285693218,
+          "count": 7
+        }
+      ],
+      "memoryDelta": 1.3070220947265625
+    },
+    {
+      "scenario": "Quality Assessment - Poor OKR",
+      "totalTime": 20922,
+      "messageCount": 4,
+      "avgTimePerMessage": 5230.5,
+      "topOperations": [
+        {
+          "name": "conversation_processing_total",
+          "totalTime": 20921.850082999998,
+          "count": 4,
+          "avg": 5230.462520749999
+        },
+        {
+          "name": "step_7_claude_api_call",
+          "totalTime": 20903.586083000002,
+          "count": 4,
+          "avg": 5225.8965207500005
+        },
+        {
+          "name": "step_7_5_knowledge_suggestions",
+          "totalTime": 3.69425100000808,
+          "count": 4,
+          "avg": 0.92356275000202
+        },
+        {
+          "name": "step_1_load_session",
+          "totalTime": 0.3457909999851836,
+          "count": 4,
+          "avg": 0.0864477499962959
+        },
+        {
+          "name": "step_2_load_messages",
+          "totalTime": 0.2640419999806909,
+          "count": 4,
+          "avg": 0.06601049999517272
+        }
+      ],
+      "slowestOperations": [
+        {
+          "name": "conversation_processing_total",
+          "avg": 5230.462520749999,
+          "count": 4
+        },
+        {
+          "name": "step_7_claude_api_call",
+          "avg": 5225.8965207500005,
+          "count": 4
+        },
+        {
+          "name": "step_7_5_knowledge_suggestions",
+          "avg": 0.92356275000202,
+          "count": 4
+        },
+        {
+          "name": "step_1_load_session",
+          "avg": 0.0864477499962959,
+          "count": 4
+        },
+        {
+          "name": "step_2_load_messages",
+          "avg": 0.06601049999517272,
+          "count": 4
+        }
+      ],
+      "memoryDelta": 1.220001220703125
+    },
+    {
+      "scenario": "Knowledge Integration",
+      "totalTime": 24842,
+      "messageCount": 5,
+      "avgTimePerMessage": 4968.4,
+      "topOperations": [
+        {
+          "name": "conversation_processing_total",
+          "totalTime": 24840.89837500002,
+          "count": 5,
+          "avg": 4968.179675000004
+        },
+        {
+          "name": "step_7_claude_api_call",
+          "totalTime": 24813.726041000016,
+          "count": 5,
+          "avg": 4962.745208200004
+        },
+        {
+          "name": "step_7_5_knowledge_suggestions",
+          "totalTime": 2.2891669999808073,
+          "count": 5,
+          "avg": 0.45783339999616146
+        },
+        {
+          "name": "step_1_load_session",
+          "totalTime": 0.5352080000157002,
+          "count": 5,
+          "avg": 0.10704160000314004
+        },
+        {
+          "name": "step_2_load_messages",
+          "totalTime": 0.3402499999792781,
+          "count": 5,
+          "avg": 0.06804999999585562
+        }
+      ],
+      "slowestOperations": [
+        {
+          "name": "conversation_processing_total",
+          "avg": 4968.179675000004,
+          "count": 5
+        },
+        {
+          "name": "step_7_claude_api_call",
+          "avg": 4962.745208200004,
+          "count": 5
+        },
+        {
+          "name": "step_7_5_knowledge_suggestions",
+          "avg": 0.45783339999616146,
+          "count": 5
+        },
+        {
+          "name": "step_1_load_session",
+          "avg": 0.10704160000314004,
+          "count": 5
+        },
+        {
+          "name": "step_2_load_messages",
+          "avg": 0.06804999999585562,
+          "count": 5
+        }
+      ],
+      "memoryDelta": 0.9137039184570312
+    },
+    {
+      "scenario": "Anti-Pattern Detection",
+      "totalTime": 19116,
+      "messageCount": 4,
+      "avgTimePerMessage": 4779,
+      "topOperations": [
+        {
+          "name": "conversation_processing_total",
+          "totalTime": 19114.99549999996,
+          "count": 4,
+          "avg": 4778.74887499999
+        },
+        {
+          "name": "step_7_claude_api_call",
+          "totalTime": 19085.194290999993,
+          "count": 4,
+          "avg": 4771.298572749998
+        },
+        {
+          "name": "step_7_5_knowledge_suggestions",
+          "totalTime": 2.4562080000177957,
+          "count": 4,
+          "avg": 0.6140520000044489
+        },
+        {
+          "name": "step_1_load_session",
+          "totalTime": 0.5359999999927823,
+          "count": 4,
+          "avg": 0.13399999999819556
+        },
+        {
+          "name": "step_2_load_messages",
+          "totalTime": 0.3453340000123717,
+          "count": 4,
+          "avg": 0.08633350000309292
+        }
+      ],
+      "slowestOperations": [
+        {
+          "name": "conversation_processing_total",
+          "avg": 4778.74887499999,
+          "count": 4
+        },
+        {
+          "name": "step_7_claude_api_call",
+          "avg": 4771.298572749998,
+          "count": 4
+        },
+        {
+          "name": "step_7_5_knowledge_suggestions",
+          "avg": 0.6140520000044489,
+          "count": 4
+        },
+        {
+          "name": "step_1_load_session",
+          "avg": 0.13399999999819556,
+          "count": 4
+        },
+        {
+          "name": "step_2_load_messages",
+          "avg": 0.08633350000309292,
+          "count": 4
+        }
+      ],
+      "memoryDelta": -0.5656204223632812
+    }
+  ],
+  "profilerStats": {
+    "step_1_load_session": {
+      "count": 4,
+      "avg": 0.13399999999819556,
+      "min": 0.050749999994877726,
+      "max": 0.19849999999860302,
+      "p50": 0.13845900000887923,
+      "p95": 0.19849999999860302,
+      "p99": 0.19849999999860302,
+      "totalDuration": 0.5359999999927823,
+      "avgMemoryDelta": -0.17280960083007812
+    },
+    "step_2_load_messages": {
+      "count": 4,
+      "avg": 0.08633350000309292,
+      "min": 0.0634589999972377,
+      "max": 0.10333300000638701,
+      "p50": 0.07804200000828132,
+      "p95": 0.10333300000638701,
+      "p99": 0.10333300000638701,
+      "totalDuration": 0.3453340000123717,
+      "avgMemoryDelta": 0.01313018798828125
+    },
+    "step_7_claude_api_call": {
+      "count": 4,
+      "avg": 4771.298572749998,
+      "min": 3999.016333000007,
+      "max": 5491.965499999991,
+      "p50": 4595.930832999991,
+      "p95": 5491.965499999991,
+      "p99": 5491.965499999991,
+      "totalDuration": 19085.194290999993,
+      "avgMemoryDelta": 0.11571311950683594
+    },
+    "step_7_5_knowledge_suggestions": {
+      "count": 4,
+      "avg": 0.6140520000044489,
+      "min": 0.2969160000211559,
+      "max": 1.0902920000080485,
+      "p50": 0.37924999999813735,
+      "p95": 1.0902920000080485,
+      "p99": 1.0902920000080485,
+      "totalDuration": 2.4562080000177957,
+      "avgMemoryDelta": -0.082305908203125
+    },
+    "conversation_processing_total": {
+      "count": 4,
+      "avg": 4778.74887499999,
+      "min": 4003.3252090000024,
+      "max": 5505.39829099999,
+      "p50": 4600.662499999977,
+      "p95": 5505.39829099999,
+      "p99": 5505.39829099999,
+      "totalDuration": 19114.99549999996,
+      "avgMemoryDelta": 0.04089546203613281
+    }
+  },
+  "profilerOverhead": {
+    "activeOperations": 0,
+    "totalEntries": 20,
+    "estimatedMemoryMB": 0.0019073486328125
+  }
+}

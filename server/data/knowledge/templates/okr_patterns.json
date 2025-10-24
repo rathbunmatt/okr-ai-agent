@@ -1,0 +1,296 @@
+{
+  "description": "Common OKR patterns and templates for different business scenarios",
+  "last_updated": "2024-01-20",
+  "patterns": [
+    {
+      "id": "growth-acceleration",
+      "name": "Growth Acceleration",
+      "description": "For companies focused on rapid business growth through multiple channels",
+      "context": {
+        "company_size": ["startup", "scale"],
+        "industries": ["technology", "retail", "services"],
+        "situations": ["scaling", "market_expansion", "fundraising_growth"]
+      },
+      "template": {
+        "objective": "Accelerate sustainable growth through [specific channel/method]",
+        "key_results": [
+          {
+            "pattern": "Revenue growth with efficiency constraint",
+            "example": "Increase [revenue metric] from $[baseline] to $[target] ([%] growth) while maintaining [efficiency metric] above [threshold]",
+            "variables": ["revenue metric", "baseline", "target", "growth %", "efficiency metric", "threshold"]
+          },
+          {
+            "pattern": "Customer acquisition with quality focus",
+            "example": "Acquire [number] new [customer type] with average [value metric] of $[amount]",
+            "variables": ["number", "customer type", "value metric", "amount"]
+          },
+          {
+            "pattern": "Market expansion with measurable penetration",
+            "example": "Achieve [percentage]% market share in [market segment] with [metric] of [target]",
+            "variables": ["percentage", "market segment", "metric", "target"]
+          }
+        ]
+      },
+      "examples": [
+        {
+          "industry": "SaaS",
+          "objective": "Accelerate sustainable growth through enterprise customer acquisition",
+          "key_results": [
+            "Increase annual recurring revenue from $2M to $4M (100% growth) while maintaining >25% gross margin",
+            "Acquire 50 new enterprise customers with average contract value of $80K",
+            "Achieve 12% market share in mid-market CRM space with 85% customer satisfaction"
+          ]
+        }
+      ],
+      "guidance": {
+        "when_to_use": [
+          "Company has product-market fit and needs to scale",
+          "Market opportunity is large and timing is right",
+          "Team has capacity and resources for growth"
+        ],
+        "success_factors": [
+          "Balance growth rate with sustainability metrics",
+          "Focus on customer quality, not just quantity",
+          "Ensure operational capacity matches growth targets"
+        ],
+        "common_pitfalls": [
+          "Growth at any cost without profitability consideration",
+          "Focusing only on vanity metrics without business value",
+          "Underestimating operational complexity of scaling"
+        ]
+      }
+    },
+    {
+      "id": "operational-excellence",
+      "name": "Operational Excellence",
+      "description": "For improving efficiency, quality, and reliability of core business operations",
+      "context": {
+        "company_size": ["scale", "enterprise"],
+        "industries": ["manufacturing", "services", "technology", "healthcare"],
+        "situations": ["scaling_operations", "cost_optimization", "quality_improvement"]
+      },
+      "template": {
+        "objective": "Achieve operational excellence through [specific improvement area]",
+        "key_results": [
+          {
+            "pattern": "Efficiency improvement with quality maintenance",
+            "example": "Reduce [process] time from [baseline] to [target] while maintaining [quality metric] above [threshold]",
+            "variables": ["process", "baseline", "target", "quality metric", "threshold"]
+          },
+          {
+            "pattern": "Cost optimization with output protection",
+            "example": "Decrease [cost metric] from $[baseline] to $[target] ([%] reduction) without reducing [output metric]",
+            "variables": ["cost metric", "baseline", "target", "% reduction", "output metric"]
+          },
+          {
+            "pattern": "Automation with reliability improvement",
+            "example": "Automate [percentage]% of [process] while achieving [reliability metric] of [target]",
+            "variables": ["percentage", "process", "reliability metric", "target"]
+          }
+        ]
+      },
+      "examples": [
+        {
+          "industry": "Manufacturing",
+          "objective": "Achieve operational excellence through lean manufacturing implementation",
+          "key_results": [
+            "Reduce production cycle time from 8 hours to 5 hours while maintaining 99.5% quality rate",
+            "Decrease cost per unit from $45 to $32 (29% reduction) without reducing daily output",
+            "Automate 75% of quality inspection process while achieving 99.8% defect detection rate"
+          ]
+        }
+      ],
+      "guidance": {
+        "when_to_use": [
+          "Operations are becoming bottleneck to growth",
+          "Competition is intensifying and efficiency is critical",
+          "Quality issues are affecting customer satisfaction"
+        ],
+        "success_factors": [
+          "Define quality metrics alongside efficiency gains",
+          "Involve operational teams in target setting",
+          "Plan for change management and training needs"
+        ],
+        "common_pitfalls": [
+          "Optimizing for cost without considering quality impact",
+          "Setting targets without understanding operational constraints",
+          "Focusing on internal metrics without customer value connection"
+        ]
+      }
+    },
+    {
+      "id": "customer-centric-value",
+      "name": "Customer-Centric Value Creation",
+      "description": "For improving customer experience, satisfaction, and lifetime value",
+      "context": {
+        "company_size": ["any"],
+        "industries": ["any customer-facing"],
+        "situations": ["customer_retention", "experience_improvement", "value_expansion"]
+      },
+      "template": {
+        "objective": "Maximize customer value through [specific experience/outcome improvement]",
+        "key_results": [
+          {
+            "pattern": "Satisfaction improvement with behavior change",
+            "example": "Increase [satisfaction metric] from [baseline] to [target] resulting in [behavior change]",
+            "variables": ["satisfaction metric", "baseline", "target", "behavior change"]
+          },
+          {
+            "pattern": "Retention improvement with value expansion",
+            "example": "Reduce [churn metric] from [baseline] to [target] while increasing [value metric] by [percentage]%",
+            "variables": ["churn metric", "baseline", "target", "value metric", "percentage"]
+          },
+          {
+            "pattern": "Experience metric with business impact",
+            "example": "Achieve [experience metric] of [target] leading to [business outcome] improvement of [amount]",
+            "variables": ["experience metric", "target", "business outcome", "amount"]
+          }
+        ]
+      },
+      "examples": [
+        {
+          "industry": "SaaS",
+          "objective": "Maximize customer value through exceptional onboarding and support experience",
+          "key_results": [
+            "Increase customer health score from 7.2 to 8.5 (1-10 scale) resulting in 25% increase in feature adoption",
+            "Reduce monthly churn rate from 5% to 3% while increasing average revenue per user by 15%",
+            "Achieve first-call resolution rate of 85% leading to NPS improvement from 42 to 60"
+          ]
+        }
+      ],
+      "guidance": {
+        "when_to_use": [
+          "Customer satisfaction or retention is below target",
+          "Growth strategy focuses on existing customer expansion",
+          "Customer experience is a competitive differentiator"
+        ],
+        "success_factors": [
+          "Connect experience metrics to business outcomes",
+          "Measure customer behavior change, not just sentiment",
+          "Include both leading and lagging indicators"
+        ],
+        "common_pitfalls": [
+          "Focusing on satisfaction scores without behavior change",
+          "Improving experience without measuring business impact",
+          "Setting targets without understanding customer journey"
+        ]
+      }
+    },
+    {
+      "id": "product-market-fit",
+      "name": "Product-Market Fit Validation",
+      "description": "For validating new products, features, or market segments",
+      "context": {
+        "company_size": ["startup", "scale"],
+        "industries": ["technology", "consumer", "b2b"],
+        "situations": ["new_product_launch", "market_expansion", "feature_validation"]
+      },
+      "template": {
+        "objective": "Validate [product/feature] market fit in [target market/segment]",
+        "key_results": [
+          {
+            "pattern": "Usage validation with engagement threshold",
+            "example": "Achieve [number] active users with [engagement metric] of [threshold] within [timeframe]",
+            "variables": ["number", "engagement metric", "threshold", "timeframe"]
+          },
+          {
+            "pattern": "Conversion validation with quality measure",
+            "example": "Generate [number] [conversion type] with [quality metric] of [percentage]%",
+            "variables": ["number", "conversion type", "quality metric", "percentage"]
+          },
+          {
+            "pattern": "Revenue validation with sustainability indicator",
+            "example": "Achieve $[amount] in [revenue type] with [sustainability metric] of [target]",
+            "variables": ["amount", "revenue type", "sustainability metric", "target"]
+          }
+        ]
+      },
+      "examples": [
+        {
+          "industry": "B2B SaaS",
+          "objective": "Validate AI-powered analytics feature market fit in enterprise segment",
+          "key_results": [
+            "Achieve 200 active beta users with 70%+ weekly usage rate within 8 weeks",
+            "Generate 25 qualified sales leads with 40% demo-to-trial conversion rate",
+            "Achieve $100K in pre-sales commitments with 80% customer satisfaction score"
+          ]
+        }
+      ],
+      "guidance": {
+        "when_to_use": [
+          "Launching new products or major features",
+          "Entering new market segments",
+          "Validating significant product pivots"
+        ],
+        "success_factors": [
+          "Define clear success criteria before launch",
+          "Balance quantitative metrics with qualitative feedback",
+          "Set realistic timeframes for meaningful validation"
+        ],
+        "common_pitfalls": [
+          "Confusing vanity metrics with validation signals",
+          "Setting validation period too short for meaningful data",
+          "Focusing on features rather than customer outcomes"
+        ]
+      }
+    },
+    {
+      "id": "digital-transformation",
+      "name": "Digital Transformation",
+      "description": "For modernizing technology, processes, and capabilities",
+      "context": {
+        "company_size": ["scale", "enterprise"],
+        "industries": ["traditional industries", "financial_services", "healthcare", "manufacturing"],
+        "situations": ["technology_modernization", "process_digitization", "capability_building"]
+      },
+      "template": {
+        "objective": "Drive digital transformation through [specific capability/process improvement]",
+        "key_results": [
+          {
+            "pattern": "Technology adoption with efficiency gain",
+            "example": "Implement [technology] achieving [efficiency metric] improvement from [baseline] to [target]",
+            "variables": ["technology", "efficiency metric", "baseline", "target"]
+          },
+          {
+            "pattern": "Process digitization with quality enhancement",
+            "example": "Digitize [percentage]% of [process] reducing [metric] by [amount] while improving [quality metric]",
+            "variables": ["percentage", "process", "metric", "amount", "quality metric"]
+          },
+          {
+            "pattern": "Capability building with adoption measure",
+            "example": "Build [capability] with [adoption metric] of [target] across [scope]",
+            "variables": ["capability", "adoption metric", "target", "scope"]
+          }
+        ]
+      },
+      "examples": [
+        {
+          "industry": "Financial Services",
+          "objective": "Drive digital transformation through automated customer onboarding",
+          "key_results": [
+            "Implement digital onboarding platform achieving 80% straight-through processing from current 25%",
+            "Digitize 90% of account opening process reducing completion time by 75% while improving compliance score to 98%",
+            "Build self-service capability with 70% customer adoption rate across all product lines"
+          ]
+        }
+      ],
+      "guidance": {
+        "when_to_use": [
+          "Organization is falling behind digitally native competitors",
+          "Manual processes are limiting scale and efficiency",
+          "Customer expectations require digital capabilities"
+        ],
+        "success_factors": [
+          "Focus on business outcomes, not just technology implementation",
+          "Include change management and adoption metrics",
+          "Plan for iterative improvement rather than big-bang approach"
+        ],
+        "common_pitfalls": [
+          "Focusing on technology features rather than business value",
+          "Underestimating change management requirements",
+          "Setting unrealistic timeline expectations for complex transformations"
+        ]
+      }
+    }
+  ]
+}
