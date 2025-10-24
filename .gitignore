@@ -68,8 +68,42 @@ pids
 # Yarn Integrity file
 .yarn-integrity
 
-# Test files with API usage (development only)
-test-api-key.ts
-llm-response-generator.ts
-response-generator-v3.ts
+# Development test scripts and temporary files
+test-*.ts
+test-*.js
+test-*.md
+test-*.txt
+test-utils/
+debug-*.ts
+validate-*.ts
+*-analyzer.ts
+response-generator*.ts
+generate-*.ts
 playwright-*.ts
+*-results.txt
+*-results.json
+
+# Development documentation and reports
+improvement-*.md
+okr-agent-*.md
+okr-agent-*.json
+okr-*.md
+okr-*.html
+*-evaluation.md
+*-analysis.md
+*-report.md
+*-report.json
+PRE_PUBLICATION_CHECKLIST.md
+
+# Screenshots and development artifacts
+screenshots/
+.claude_project_memory/
+
+# Profiling and performance data
+profiling-results-*.json
+
+# Playwright MCP testing (keep locally, exclude from open source)
+playwright.config.ts
+tests/e2e/
+playwright-report/
+playwright-report.json
