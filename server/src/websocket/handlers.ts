@@ -355,6 +355,10 @@ export class WebSocketHandler {
             });
           }
 
+          // Get current session phase (after any transitions)
+          const currentSessionResult = await this.db.sessions.getSessionById(sessionId);
+          const currentPhase = currentSessionResult.success ? currentSessionResult.data?.phase : result.response?.phase;
+
           // Send response to all clients in the session
           const responseData = {
             sessionId,
@@ -362,7 +366,7 @@ export class WebSocketHandler {
             newPhase: result.newPhase as string | undefined,
             shouldTransition: result.shouldTransition,
             qualityScores: result.response?.qualityScores ? this.transformQualityScores(result.response.qualityScores) : undefined,
-            phase: result.response?.phase,
+            phase: currentPhase, // Use current phase from session, not old phase from response
             metadata: result.response?.metadata,
             okrData, // Include OKR data in the response
           };

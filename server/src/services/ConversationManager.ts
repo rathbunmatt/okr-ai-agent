@@ -720,6 +720,20 @@ export class ConversationManager {
         session.phase
       );
 
+      // Step 4.5: Detect finalization signal BEFORE generating prompt
+      // This allows the AI to know the user has confirmed and avoid asking again
+      const messagesWithCurrent = [...messages, { content: userMessage, role: 'user' }];
+      const hasFinalizationSignal = this.detectFinalizationInConversation(messagesWithCurrent);
+
+      // Log finalization detection for debugging
+      if (hasFinalizationSignal) {
+        logger.info('🎯 Finalization signal detected before prompt generation', {
+          sessionId,
+          phase: session.phase,
+          message: userMessage.substring(0, 100)
+        });
+      }
+
       // Step 5: Build prompt engineering context
       const promptContext: PromptContext = {
         session,
@@ -745,7 +759,9 @@ export class ConversationManager {
         // ARIA learning enhancements
         breakthroughCelebration,
         conceptInsight,
-        learningProgress
+        learningProgress,
+        // Finalization signal - tells AI user has approved
+        hasFinalizationSignal
       };
 
       // Step 6: Generate sophisticated prompt using PromptEngineering
@@ -2339,7 +2355,13 @@ export class ConversationManager {
       'let\'s move forward', 'move to next phase', 'proceed to next',
       'we can finish', 'we\'re finished', 'this is complete',
       'ready for validation', 'validation and completion', 'please finalize',
-      'no further refinement', 'stop there', 'we do not need to progress'
+      'no further refinement', 'stop there', 'we do not need to progress',
+      // Additional completion signals
+      'ready to complete', 'complete the okr', 'i am ready to complete',
+      'complete this', 'finish this', 'let\'s complete', 'finalize the okr',
+      'i\'m ready to complete', 'we\'re ready to complete', 'ready to finish',
+      // Single-word completion commands
+      'complete', 'finalize', 'approve', 'done'
     ];
 
     // Approval/acceptance phrases (MEDIUM CONFIDENCE - context-dependent)
@@ -2348,7 +2370,11 @@ export class ConversationManager {
       'i like it', 'perfect', 'excellent',
       'that\'s great', 'exactly what i wanted',
       'this is great', 'this is perfect',
-      'that captures it', 'spot on'
+      'that captures it', 'spot on',
+      // Simple affirmative responses
+      'yes', 'yep', 'yeah', 'correct', 'right',
+      'ok', 'okay', 'sure', 'absolutely', 'definitely',
+      '👍', 'good', 'great', 'fine'
     ];
 
     // Check last 3 messages for signals

@@ -57,6 +57,8 @@ export interface PromptContext {
   breakthroughCelebration?: string | null;
   conceptInsight?: string | null;
   learningProgress?: string | null;
+  // Finalization signal - indicates user has approved/confirmed
+  hasFinalizationSignal?: boolean;
 }
 
 export interface EngineeredPrompt {
@@ -619,6 +621,33 @@ export class PromptEngineering {
     // Get base template from PromptTemplateService with markdown formatting instructions
     const baseTemplate = this.promptTemplateService.getTemplate(context.phase, context.session.context || undefined);
     let systemMessage = baseTemplate.systemPrompt;
+
+    // CRITICAL: Handle finalization signal in validation phase
+    // When user has confirmed/approved, immediately finalize instead of asking again
+    if (context.phase === 'validation' && context.hasFinalizationSignal) {
+      systemMessage += `\n\n🎯 CRITICAL OVERRIDE - USER HAS APPROVED:
+
+The user has explicitly approved or confirmed the OKR (detected signals: "yes", "complete", "approve", "finalize", etc.).
+
+**YOU MUST NOW:**
+1. IMMEDIATELY acknowledge their approval: "Great! Your OKR is now finalized."
+2. Display the final OKR in clear, structured format
+3. STOP ALL CONVERSATION - Do NOT ask ANY more questions
+4. Do NOT ask "Is this final?" or "Do you approve?" or "Any changes?" - they ALREADY approved
+5. Do NOT offer refinements, alternatives, or improvements
+6. Do NOT suggest implementation, milestones, or next steps
+
+**YOUR ENTIRE RESPONSE SHOULD BE:**
+"Great! Your OKR is finalized.
+
+[Show the complete OKR clearly formatted]
+
+Status: FINAL & APPROVED
+
+Your OKR is complete and ready for implementation."
+
+NOTHING MORE. The conversation ends here.`;
+    }
 
     // Detect organizational scope from session context
     const scope = this.detectScopeFromContext(context);
