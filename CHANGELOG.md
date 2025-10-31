@@ -113,6 +113,45 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Zero Finalization Loops**: Complete elimination of conversation loops
 - **Average Efficiency**: 8.6 turns per scenario (down from 10.2)
 
+### Technical Changes
+
+#### Server Components
+- **server/src/utils/errors.ts**
+  - Enhanced `getErrorMessage()` with comprehensive error handling
+  - Added try-catch wrapper for safe error extraction
+  - Implemented fallback strategies for object error serialization
+  - Added safe JSON.stringify with error recovery
+
+- **server/src/services/QuestionManager.ts**
+  - Added null/undefined guards in `isDuplicateQuestion()` method
+  - Protected word splitting operations from undefined values
+  - Added zero-length set validation before similarity calculation
+  - Prevents runtime errors when processing empty or invalid questions
+
+- **server/src/services/LearningProgressAnalyzer.ts**
+  - Fixed timestamp conversion in `calculateLearningVelocity()` method
+  - Changed from direct `.getTime()` to `new Date().getTime()` for safe date handling
+  - Ensures proper date object conversion before time calculations
+  - Affects illumination moment and action phase timing metrics
+
+- **server/src/services/ClaudeService.ts**
+  - Moved `sanitizedMessage` declaration outside try block for proper scope
+  - Implemented `buildConversationContext()` method call (replacing empty object)
+  - Improved variable scoping for error handling in catch blocks
+
+- **server/src/websocket/handlers.ts**
+  - Enhanced quality score transformation in `transformQualityForClient()` method
+  - Added key results presence check before using overall aggregate score
+  - Prevents premature display of lower aggregate scores during discovery phase
+  - Improved phase transition tracking by capturing "before" phase state
+  - Fixed `phase_transition` event to show accurate fromPhase value
+
+#### Documentation
+- **TESTING_IMPROVEMENTS.md**: 297 lines of comprehensive technical documentation
+- **RELEASE_NOTES_TESTING.md**: 132 lines of release-focused documentation
+- **README.md**: Updated current status, added Testing Quality section with v1.0.1 metrics
+- **CHANGELOG.md**: This file - comprehensive v1.0.1 release documentation
+
 ## [Unreleased]
 
 ### Planned
