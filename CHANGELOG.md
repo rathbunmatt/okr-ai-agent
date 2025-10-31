@@ -87,6 +87,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Quality improvement: +23 points average
 - Issue detection accuracy: 100%
 
+## [1.0.1] - 2025-10-31
+
+### Fixed
+- **Conversation Loop Prevention**: Fixed finalization loop in Test 8 (Consulting scenario) by adding missing completion signals ("congratulations", "fantastic work", "excellent work")
+- **Quality Score Calculation**: Improved quality score display logic to prevent showing lower scores during discovery/refinement phases
+- **Phase Transition Tracking**: Enhanced phase transition event to capture accurate "before" phase state
+- **Error Handling**: Improved error message extraction with robust handling for object errors and serialization failures
+- **Null Safety**: Added null/undefined guards in QuestionManager for word similarity calculations
+- **Date Handling**: Fixed timestamp conversion in LearningProgressAnalyzer for journey metrics
+
+### Improved
+- **Test Framework Completion Detection**: Enhanced completion signal detection to distinguish between OKR completion and follow-up questions
+- **Conversation Efficiency**: Reduced average conversation turns from 10.2 to 8.6 (16% improvement)
+- **Test 8 Performance**: Reduced turns from 20 (hitting limit) to 9 turns (55% improvement)
+- **Conversation Quality**: Eliminated all finalization loops (100% fix rate)
+
+### Added
+- **Testing Documentation**: Comprehensive testing improvements documentation (TESTING_IMPROVEMENTS.md)
+- **Release Notes**: Testing system release notes (RELEASE_NOTES_TESTING.md)
+- **Enhanced OKR Extraction**: Multi-method extraction strategy with fallback selectors and validation
+
+### Performance
+- **100% Conversation Completion**: All 16 available test scenarios completed successfully
+- **Zero Finalization Loops**: Complete elimination of conversation loops
+- **Average Efficiency**: 8.6 turns per scenario (down from 10.2)
+
 ## [Unreleased]
 
 ### Planned
@@ -115,4 +141,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Fixed**: Bug fixes
 - **Security**: Security vulnerability fixes
 
+[1.0.1]: https://github.com/rathbunmatt/okr-ai-agent/releases/tag/v1.0.1
 [1.0.0]: https://github.com/rathbunmatt/okr-ai-agent/releases/tag/v1.0.0

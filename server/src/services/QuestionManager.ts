@@ -97,8 +97,14 @@ export class QuestionManager {
       }
 
       // High similarity (>80% of words match)
-      const words1 = new Set(normalized.split(' '));
-      const words2 = new Set(askedNormalized.split(' '));
+      const words1 = new Set(normalized?.split(' ') || []);
+      const words2 = new Set(askedNormalized?.split(' ') || []);
+
+      // Guard against undefined or empty sets
+      if (words1.size === 0 || words2.size === 0) {
+        return false;
+      }
+
       const intersection = new Set([...words1].filter(w => words2.has(w)));
       const similarity = (intersection.size * 2) / (words1.size + words2.size);
 

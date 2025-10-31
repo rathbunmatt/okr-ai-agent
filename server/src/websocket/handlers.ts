@@ -100,6 +100,7 @@ export class WebSocketHandler {
     logger.debug('Transforming quality scores', {
       hasObjective: !!serverQuality?.objective,
       hasOverall: !!serverQuality?.overall,
+      hasKeyResults: !!(serverQuality?.keyResults && serverQuality.keyResults.length > 0),
       objectiveOverall: serverQuality?.objective?.overall,
       objectiveDimensions: serverQuality?.objective?.dimensions,
       overallScore: serverQuality?.overall
@@ -131,8 +132,9 @@ export class WebSocketHandler {
       feedback = serverQuality.objective.feedback || [];
     }
 
-    // Use overall score if available
-    if (serverQuality?.overall) {
+    // Use overall aggregate score ONLY if we have key results
+    // This prevents showing a lower score during discovery/refinement phases
+    if (serverQuality?.overall && serverQuality?.keyResults && serverQuality.keyResults.length > 0) {
       overall = serverQuality.overall.score || 0;
       confidence = (serverQuality.overall.achievability || 0) / 100; // Convert to 0-1 scale
     }
@@ -225,6 +227,12 @@ export class WebSocketHandler {
             });
             return;
           }
+
+          // Get the phase BEFORE processing the message (for accurate phase_transition event)
+          const sessionBeforeProcessing = await this.db.sessions.getSessionById(sessionId);
+          const phaseBeforeProcessing: string = sessionBeforeProcessing.success && sessionBeforeProcessing.data?.phase
+            ? sessionBeforeProcessing.data.phase
+            : 'discovery';
 
           // Show typing indicator to other clients in the session
           socket.to(sessionId).emit('typing_indicator', {
@@ -386,12 +394,9 @@ export class WebSocketHandler {
 
           // If phase transition occurred, notify clients
           if (result.shouldTransition && result.newPhase) {
-            const sessionResult = await this.db.sessions.getSessionById(sessionId);
-            const currentPhase = sessionResult.success ? sessionResult.data?.phase : 'unknown';
-
             this.io.to(sessionId).emit('phase_transition', {
               sessionId,
-              fromPhase: currentPhase || 'unknown',
+              fromPhase: phaseBeforeProcessing || 'discovery',
               toPhase: result.newPhase,
               message: `Transitioned to ${result.newPhase} phase`,
             });

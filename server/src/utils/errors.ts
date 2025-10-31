@@ -3,10 +3,27 @@
  */
 
 export function getErrorMessage(error: unknown): string {
-  if (error instanceof Error) {
-    return error.message;
+  try {
+    if (error instanceof Error) {
+      return error.message;
+    }
+    if (error && typeof error === 'object') {
+      // Try to safely stringify object errors
+      if ('message' in error && typeof (error as any).message === 'string') {
+        return (error as any).message;
+      }
+      // Attempt JSON.stringify with a fallback
+      try {
+        return JSON.stringify(error);
+      } catch {
+        return 'Error object could not be serialized';
+      }
+    }
+    return String(error);
+  } catch (e) {
+    // If all else fails, return a safe fallback
+    return 'Unknown error occurred';
   }
-  return String(error);
 }
 
 export class DatabaseError extends Error {

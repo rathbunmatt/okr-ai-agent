@@ -514,15 +514,15 @@ export class LearningProgressAnalyzer {
 
     journeys.forEach(journey => {
       if (journey.illuminationMoment && journey.awarenessPhase.timestamp) {
-        const timeToIllumination = journey.illuminationMoment.timestamp.getTime() -
-                                    journey.awarenessPhase.timestamp.getTime();
+        const timeToIllumination = new Date(journey.illuminationMoment.timestamp).getTime() -
+                                    new Date(journey.awarenessPhase.timestamp).getTime();
         totalTimeToIllumination += timeToIllumination;
         illuminationCount++;
       }
 
       if (journey.actionPhase && journey.illuminationMoment) {
-        const timeToAction = journey.actionPhase.timestamp.getTime() -
-                            journey.illuminationMoment.timestamp.getTime();
+        const timeToAction = new Date(journey.actionPhase.timestamp).getTime() -
+                            new Date(journey.illuminationMoment.timestamp).getTime();
         totalTimeToAction += timeToAction;
         actionCount++;
       }

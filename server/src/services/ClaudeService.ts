@@ -251,7 +251,7 @@ export class ClaudeService {
       // Build conversation messages from engineered prompt
       const messages = this.buildConversationMessagesFromPrompt(engineeredPrompt);
 
-      // Sanitize input for privacy
+      // Sanitize input for privacy - declare outside try block so catch can access
       const sanitizedMessage = this.sanitizeInput(userMessage);
       const sanitizedMessages = messages.map(msg => ({
         role: msg.role,
@@ -847,7 +847,7 @@ Provide a final quality score (1-100) and explain your assessment.`;
     const userMessageLower = userMessage.toLowerCase();
 
     // Build comprehensive conversation context - simplified for now
-    const conversationContext = {};
+    const conversationContext = this.buildConversationContext(conversationHistory, userMessage);
 
     // Extract key information from user messages for context
     const hasBusinessContext = this.detectBusinessContext(userMessage, conversationHistory);
