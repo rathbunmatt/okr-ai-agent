@@ -332,7 +332,12 @@ router.get('/:id/okrs', async (req, res) => {
 /**
  * POST /api/sessions/:id/reset
  * Reset a session to start fresh - ensures complete session isolation
+ *
  * ENHANCED: Completely deletes old session and creates a new one to prevent any context leakage
+ *
+ * IMPORTANT: This operation is destructive - old session data is permanently deleted.
+ * Multi-tab behavior: If the user has multiple tabs open with the same session,
+ * other tabs will lose their connection and need to reconnect.
  */
 router.post('/:id/reset', async (req, res) => {
   try {
@@ -350,6 +355,16 @@ router.post('/:id/reset', async (req, res) => {
     const userId = sessionResult.data!.user_id;
     const context = sessionResult.data!.context;
 
+    // Store context for potential recovery
+    const sessionBackup = {
+      userId,
+      context: {
+        industry: context?.industry,
+        function: context?.function,
+        timeframe: context?.timeframe,
+      }
+    };
+
     // 1. CRITICAL: Invalidate all caches for the old session BEFORE deletion
     // This ensures no cached responses can leak into the new session
     conversationManager.invalidateSessionCache(oldSessionId);
@@ -362,14 +377,54 @@ router.post('/:id/reset', async (req, res) => {
 
     // 4. Create a BRAND NEW session with fresh ID to ensure complete isolation
     // This prevents any possibility of residual state from the old session
-    const newSessionResult = await conversationManager.initializeSession(userId, {
-      industry: context?.industry,
-      function: context?.function,
-      timeframe: context?.timeframe,
-    });
+    let newSessionResult;
+    try {
+      newSessionResult = await conversationManager.initializeSession(
+        sessionBackup.userId,
+        sessionBackup.context
+      );
 
-    if (!newSessionResult.success) {
-      throw new Error(`Failed to create new session: ${newSessionResult.error}`);
+      if (!newSessionResult.success) {
+        throw new Error(newSessionResult.error || 'Failed to create new session');
+      }
+    } catch (sessionCreationError) {
+      // RECOVERY: If new session creation fails, log error and provide fallback
+      logger.error('Failed to create new session after reset - attempting recovery', {
+        error: getErrorMessage(sessionCreationError),
+        oldSessionId,
+        userId: sessionBackup.userId,
+      });
+
+      // Attempt to create a minimal fallback session
+      try {
+        newSessionResult = await conversationManager.initializeSession(
+          sessionBackup.userId,
+          {} // Minimal context for recovery
+        );
+
+        if (!newSessionResult.success) {
+          // Complete failure - return error to client
+          return res.status(500).json({
+            success: false,
+            error: 'Failed to create new session. Please refresh the page and try again.',
+          });
+        }
+
+        logger.warn('Recovery session created after initial failure', {
+          oldSessionId,
+          newSessionId: newSessionResult.sessionId,
+        });
+      } catch (recoveryError) {
+        logger.error('Recovery session creation also failed', {
+          error: getErrorMessage(recoveryError),
+          oldSessionId,
+        });
+
+        return res.status(500).json({
+          success: false,
+          error: 'Failed to reset session. Please refresh the page.',
+        });
+      }
     }
 
     const newSessionId = newSessionResult.sessionId;
