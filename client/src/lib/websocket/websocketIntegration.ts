@@ -66,9 +66,9 @@ export class WebSocketIntegration {
   /**
    * Connect to WebSocket server
    */
-  async connect(userId: string = 'anonymous'): Promise<void> {
+  async connect(userId: string = 'anonymous', existingSessionId?: string | null): Promise<void> {
     try {
-      await webSocketManager.connect(userId);
+      await webSocketManager.connect(userId, existingSessionId);
 
       // Get session ID after connection
       const state = webSocketManager.getState();

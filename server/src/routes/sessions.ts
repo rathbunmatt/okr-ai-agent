@@ -332,13 +332,14 @@ router.get('/:id/okrs', async (req, res) => {
 /**
  * POST /api/sessions/:id/reset
  * Reset a session to start fresh - ensures complete session isolation
+ * ENHANCED: Completely deletes old session and creates a new one to prevent any context leakage
  */
 router.post('/:id/reset', async (req, res) => {
   try {
-    const sessionId = req.params.id;
+    const oldSessionId = req.params.id;
 
-    // Get session info for userId before reset
-    const sessionResult = await db.sessions.getSessionById(sessionId);
+    // Get session info for userId before deletion
+    const sessionResult = await db.sessions.getSessionById(oldSessionId);
     if (!sessionResult.success) {
       return res.status(404).json({
         success: false,
@@ -347,44 +348,54 @@ router.post('/:id/reset', async (req, res) => {
     }
 
     const userId = sessionResult.data!.user_id;
+    const context = sessionResult.data!.context;
 
-    // 1. Delete ALL messages for this session
-    await db.messages.deleteMessagesBySession(sessionId);
+    // 1. CRITICAL: Invalidate all caches for the old session BEFORE deletion
+    // This ensures no cached responses can leak into the new session
+    conversationManager.invalidateSessionCache(oldSessionId);
 
-    // 2. Reset session metadata to initial state
-    await db.sessions.updateSession(sessionId, {
-      phase: 'discovery',
-      metadata: {
-        conversation_state: {},  // Clear all conversation state
-        phase_transitions: [],
-        quality_history: [],
-      },
+    // 2. Delete ALL messages for the old session
+    await db.messages.deleteMessagesBySession(oldSessionId);
+
+    // 3. Delete the old session completely from database
+    await db.sessions.deleteSession(oldSessionId);
+
+    // 4. Create a BRAND NEW session with fresh ID to ensure complete isolation
+    // This prevents any possibility of residual state from the old session
+    const newSessionResult = await conversationManager.initializeSession(userId, {
+      industry: context?.industry,
+      function: context?.function,
+      timeframe: context?.timeframe,
     });
 
-    // 3. CRITICAL: Invalidate all caches for this session to prevent context leakage
-    // This clears both the CacheService and ClaudeService's in-memory cache
-    conversationManager.invalidateSessionCache(sessionId);
+    if (!newSessionResult.success) {
+      throw new Error(`Failed to create new session: ${newSessionResult.error}`);
+    }
 
-    // Note: Complete session reset includes:
-    // - Message deletion from database
-    // - Session metadata reset
-    // - Cache invalidation (prevents cached responses from previous conversation)
-    // When the next message is processed, ConversationManager will load fresh state
+    const newSessionId = newSessionResult.sessionId;
 
-    // Log analytics
-    await db.logAnalyticsEvent('session_reset', sessionId, userId, {
+    // 5. Log analytics for both old and new sessions
+    await db.logAnalyticsEvent('session_reset_old_deleted', oldSessionId, userId, {
       source: 'rest_api',
+      newSessionId,
     });
 
-    logger.info('Session reset via API - complete isolation established', {
-      sessionId,
+    await db.logAnalyticsEvent('session_reset_new_created', newSessionId!, userId, {
+      source: 'rest_api',
+      oldSessionId,
+    });
+
+    logger.info('Session reset via API - old session deleted, new session created', {
+      oldSessionId,
+      newSessionId,
       userId
     });
 
     res.json({
       success: true,
-      message: 'Session reset successfully - starting fresh',
-      sessionId,
+      message: 'Session reset successfully - starting fresh with new session',
+      sessionId: newSessionId,
+      oldSessionId: oldSessionId,
       phase: 'discovery',
       welcomeMessage: 'Welcome! Let\'s create some great OKRs together. What outcome would you like to achieve?',
     });
