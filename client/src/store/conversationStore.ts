@@ -214,6 +214,8 @@ export const useConversationStore = create<ConversationStore>()(
           // WebSocket integration methods
           connectWebSocket: async () => {
             try {
+              const currentState = get();
+
               set((state) => ({
                 ui: { ...state.ui, isLoading: true, error: null }
               }));
@@ -221,7 +223,8 @@ export const useConversationStore = create<ConversationStore>()(
               // Generate a userId for the session (in a real app, this would come from auth)
               const userId = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 
-              await webSocketIntegration.connect(userId);
+              // Pass existing sessionId if available (e.g., from reset)
+              await webSocketIntegration.connect(userId, currentState.sessionId);
 
               set((state) => ({
                 ui: { ...state.ui, isLoading: false, isConnected: true }
@@ -315,7 +318,10 @@ export const useConversationStore = create<ConversationStore>()(
             const state = get();
             const currentSessionId = state.sessionId;
 
-            // If we have a session ID, reset it on the server to ensure complete isolation
+            let newSessionId: string | null = null;
+
+            // If we have a session ID, reset it on the server
+            // The server will delete the old session and create a brand new one
             if (currentSessionId) {
               try {
                 const response = await fetch(`/api/sessions/${currentSessionId}/reset`, {
@@ -324,14 +330,17 @@ export const useConversationStore = create<ConversationStore>()(
                 });
 
                 if (!response.ok) {
-                  console.warn('Failed to reset session on server, proceeding with client-side reset');
-                }
+                  console.warn('Failed to reset session on server, will create new session on reconnect');
+                } else {
+                  const data = await response.json();
+                  console.log('Session reset on server - old session deleted, new session created:', data);
 
-                const data = await response.json();
-                console.log('Session reset on server:', data);
+                  // Store the new session ID from the server response
+                  newSessionId = data.sessionId || null;
+                }
               } catch (error) {
                 console.error('Error resetting session on server:', error);
-                // Continue with client-side reset even if server reset fails
+                // Will create new session on reconnect
               }
             }
 
@@ -357,9 +366,9 @@ export const useConversationStore = create<ConversationStore>()(
             }
 
             // Reset client-side state completely
-            // Use a callback to ensure state is properly reset in one atomic operation
+            // Use the new session ID from the server if available
             set({
-              sessionId: null,
+              sessionId: newSessionId,
               phase: 'discovery',
               messages: [],
               objective: null,
@@ -383,8 +392,9 @@ export const useConversationStore = create<ConversationStore>()(
               isTyping: false,
             });
 
-            // Reconnect WebSocket to get fresh session
-            // Auto-reconnect will create new session with fresh context
+            // Reconnect WebSocket to use the new session
+            // If we got a new session ID from reset, WebSocket will use it
+            // Otherwise, it will create a brand new session
             setTimeout(async () => {
               await get().connectWebSocket();
             }, 500);

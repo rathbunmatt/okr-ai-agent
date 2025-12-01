@@ -138,7 +138,7 @@ export class WebSocketManager {
   /**
    * Connect to Socket.IO server and create/join session
    */
-  async connect(userId: string = 'anonymous'): Promise<void> {
+  async connect(userId: string = 'anonymous', existingSessionId?: string | null): Promise<void> {
     if (this.state.isConnecting || this.state.isConnected) {
       return;
     }
@@ -150,8 +150,14 @@ export class WebSocketManager {
       this.state.userId = userId;
       this.log('Connecting to Socket.IO server...');
 
-      // Step 1: Create session via REST API
-      this.state.sessionId = await this.createSession(userId);
+      // Step 1: Use existing session ID if provided (from reset), otherwise create new session
+      if (existingSessionId) {
+        this.log('Using existing session ID from reset:', existingSessionId);
+        this.state.sessionId = existingSessionId;
+      } else {
+        this.log('Creating new session via REST API');
+        this.state.sessionId = await this.createSession(userId);
+      }
 
       // Step 2: Connect to Socket.IO
       await new Promise<void>((resolve, reject) => {
